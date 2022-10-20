@@ -11,18 +11,27 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Common.h">
+    <ClInclude Include="Inc\Core.h">
       <Filter>Inc</Filter>
     </ClInclude>
-    <ClInclude Include="Core.h">
+    <ClInclude Include="Inc\Common.h">
       <Filter>Inc</Filter>
     </ClInclude>
-    <ClInclude Include="Precompiled.h">
+    <ClInclude Include="Src\Precompiled.h">
       <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\DebugUtil.h">
+      <Filter>Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\TimeUtil.h">
+      <Filter>Inc</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Precompiled.cpp">
+    <ClCompile Include="Src\Precompiled.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\TImeUtil.cpp">
       <Filter>Src</Filter>
     </ClCompile>
   </ItemGroup>
