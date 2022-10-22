@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Inc">
+      <UniqueIdentifier>{d733656c-c0c4-4fd7-ba6c-2e32c0c5470f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src">
+      <UniqueIdentifier>{5690ef8e-8ae1-4bd6-878d-48a231a0fd4c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Inc\Common.h">
+      <Filter>Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\MMath.h">
+      <Filter>Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Precompiled.h">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\Vector3.h">
+      <Filter>Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\Vector2.h">
+      <Filter>Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\Vector4.h">
+      <Filter>Inc</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Src\Precompiled.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\MMath.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Vector3.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Vector2.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Vector4.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

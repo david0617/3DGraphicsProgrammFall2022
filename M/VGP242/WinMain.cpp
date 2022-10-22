@@ -1,5 +1,5 @@
 #include <Windows.h>
-#include "../Core/Inc/Core.h"
+#include "../Framework/Core/Inc/Core.h"
 
 int WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 {
@@ -8,5 +8,9 @@ int WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
         LOG("New Log");
         Sleep(0);
     }
+
+    // game init
+    // game run
+    // game cleanup
     return 0;
 }
