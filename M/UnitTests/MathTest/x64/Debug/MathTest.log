@@ -1,16 +1,14 @@
 ﻿D:\3DGraphicsProgrammFall2022\M\VSProps\M.props(4,5): warning MSB4011: "D:\3DGraphicsProgrammFall2022\M\VSProps\Common\Common.props" cannot be imported again. It was already imported at "D:\3DGraphicsProgrammFall2022\M\VSProps\UnitTests.props (4,5)". This is most likely a build authoring error. This subsequent import will be ignored. [D:\3DGraphicsProgrammFall2022\M\UnitTests\MathTest\MathTest.vcxproj]
   pch.cpp
-D:\3DGraphicsProgrammFall2022\M\Framework\Math\Inc\Vector3.h(25,52): warning C4552: '+': result of expression not used
-D:\3DGraphicsProgrammFall2022\M\Framework\Math\Inc\Vector3.h(25,61): warning C4552: '+': result of expression not used
-D:\3DGraphicsProgrammFall2022\M\Framework\Math\Inc\Vector3.h(25,70): warning C4552: '+': result of expression not used
-D:\3DGraphicsProgrammFall2022\M\Framework\Math\Inc\Vector3.h(26,52): warning C4552: '-': result of expression not used
-D:\3DGraphicsProgrammFall2022\M\Framework\Math\Inc\Vector3.h(26,61): warning C4552: '-': result of expression not used
-D:\3DGraphicsProgrammFall2022\M\Framework\Math\Inc\Vector3.h(26,70): warning C4552: '-': result of expression not used
-D:\3DGraphicsProgrammFall2022\M\Framework\Math\Inc\Vector3.h(27,52): warning C4552: '/': result of expression not used
-D:\3DGraphicsProgrammFall2022\M\Framework\Math\Inc\Vector3.h(27,61): warning C4552: '/': result of expression not used
-D:\3DGraphicsProgrammFall2022\M\Framework\Math\Inc\Vector3.h(27,70): warning C4552: '/': result of expression not used
-D:\3DGraphicsProgrammFall2022\M\Framework\Math\Inc\Vector3.h(28,52): warning C4552: '*': result of expression not used
-D:\3DGraphicsProgrammFall2022\M\Framework\Math\Inc\Vector3.h(28,61): warning C4552: '*': result of expression not used
-D:\3DGraphicsProgrammFall2022\M\Framework\Math\Inc\Vector3.h(28,70): warning C4552: '*': result of expression not used
+D:\3DGraphicsProgrammFall2022\M\Framework\Math\Inc\Vector2.h(26,54): warning C4552: '+': result of expression not used
+D:\3DGraphicsProgrammFall2022\M\Framework\Math\Inc\Vector2.h(26,65): warning C4552: '+': result of expression not used
+D:\3DGraphicsProgrammFall2022\M\Framework\Math\Inc\Vector2.h(27,54): warning C4552: '-': result of expression not used
+D:\3DGraphicsProgrammFall2022\M\Framework\Math\Inc\Vector2.h(27,65): warning C4552: '-': result of expression not used
+D:\3DGraphicsProgrammFall2022\M\Framework\Math\Inc\Vector2.h(28,54): warning C4552: '*': result of expression not used
+D:\3DGraphicsProgrammFall2022\M\Framework\Math\Inc\Vector2.h(28,65): warning C4552: '*': result of expression not used
+D:\3DGraphicsProgrammFall2022\M\Framework\Math\Inc\Vector2.h(29,49): warning C4552: '*': result of expression not used
+D:\3DGraphicsProgrammFall2022\M\Framework\Math\Inc\Vector2.h(29,56): warning C4552: '*': result of expression not used
+D:\3DGraphicsProgrammFall2022\M\Framework\Math\Inc\Vector2.h(30,49): warning C4552: '/': result of expression not used
+D:\3DGraphicsProgrammFall2022\M\Framework\Math\Inc\Vector2.h(30,56): warning C4552: '/': result of expression not used
   MathTest.cpp
   MathTest.vcxproj -> D:\3DGraphicsProgrammFall2022\M\x64\Debug\MathTest.dll

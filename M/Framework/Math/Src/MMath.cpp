@@ -3,6 +3,56 @@
 
 using namespace M::MMath;
 
+template <typename T>
+inline T M::MMath::Min(T a, T b)
+{
+    if (a < b)
+    {
+        return b;
+    }
+    return a;
+}
+
+template <typename T>
+inline T M::MMath::Max(T a, T b)
+{
+    if (a < b)
+    {
+        return a;
+    }
+    return b;
+}
+
+template <typename T>
+inline T M::MMath::Clamp(T v, T min, T max)
+{
+    if (v > max)
+    {
+        v = max;
+    }
+    else if (v < min)
+    {
+        v = min;
+    }
+    return v;
+}
+
+template <typename T>
+inline T M::MMath::Lerp(T a, T b, float t)
+{
+    return a + t * (b - a);
+}
+
+template <typename T>
+inline T M::MMath::Abs(T v)
+{
+    if (v < 0)
+    {
+        v * -1;
+    }
+    return v;
+}
+
 //Vector2
 inline float M::MMath::MagnitudeSqr(const Vector2& v)
 {
@@ -29,12 +79,14 @@ inline float M::MMath::Dot(const Vector2& v1, Vector2& v2)
     return (v1.x * v2.x) + (v1.y * v2.y);
 }
 
+/*
 inline Vector2 M::MMath::Cross(const Vector2& v1, Vector2& v2)
 {
     Vector2 temp;
 
     return temp;
 }
+*/
 
 //Vector3
 inline float M::MMath::MagnitudeSqr(const Vector3& v)
@@ -98,9 +150,11 @@ inline float M::MMath::Dot(const Vector4& v1, Vector4& v2)
     return (v1.x * v2.x) + (v1.y * v2.y) + (v1.z + v2.z) + (v1.w + v2.w);
 }
 
+/*
 inline Vector4 M::MMath::Cross(const Vector4& v1, Vector4& v2)
 {
     Vector4 temp;
 
     return temp;
 }
+*/
