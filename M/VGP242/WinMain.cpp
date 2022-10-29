@@ -1,4 +1,3 @@
-#include <Windows.h>
 #include "../Framework/Core/Inc/Core.h"
 
 int WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
@@ -12,5 +11,9 @@ int WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
     // game init
     // game run
     // game cleanup
+
+    //
+
+
     return 0;
 }

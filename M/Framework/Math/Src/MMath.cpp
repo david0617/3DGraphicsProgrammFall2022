@@ -40,7 +40,7 @@ inline T M::MMath::Clamp(T v, T min, T max)
 template <typename T>
 inline T M::MMath::Lerp(T a, T b, float t)
 {
-    clamp(t, 0. 1);
+    t = M::MMath::Clamp(t, 0, 1);
 
     if (t == 0)
     {

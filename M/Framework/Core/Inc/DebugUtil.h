@@ -13,7 +13,7 @@
     do {\
         if (!condition)\
         {\
-            LOG("ASSERT! %s(%d")\n##formate##, __FILE__, __LINE__, __VA_ARGS__);\
+            LOG("ASSERT! %s(%d)\n"##format##, __FILE__, __LINE__, __VA_ARGS__);\
             DebugBreak();\
             }\
     }while (false)
