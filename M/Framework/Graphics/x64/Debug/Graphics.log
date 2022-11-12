@@ -1,2 +1,12 @@
 ﻿  Precompiled.cpp
+D:\3DGraphicsProgrammFall2022\M\Framework\Math\Inc\Vector2.h(26,54): warning C4552: '+': result of expression not used
+D:\3DGraphicsProgrammFall2022\M\Framework\Math\Inc\Vector2.h(26,65): warning C4552: '+': result of expression not used
+D:\3DGraphicsProgrammFall2022\M\Framework\Math\Inc\Vector2.h(27,54): warning C4552: '-': result of expression not used
+D:\3DGraphicsProgrammFall2022\M\Framework\Math\Inc\Vector2.h(27,65): warning C4552: '-': result of expression not used
+D:\3DGraphicsProgrammFall2022\M\Framework\Math\Inc\Vector2.h(28,54): warning C4552: '*': result of expression not used
+D:\3DGraphicsProgrammFall2022\M\Framework\Math\Inc\Vector2.h(28,65): warning C4552: '*': result of expression not used
+D:\3DGraphicsProgrammFall2022\M\Framework\Math\Inc\Vector2.h(29,49): warning C4552: '*': result of expression not used
+D:\3DGraphicsProgrammFall2022\M\Framework\Math\Inc\Vector2.h(29,56): warning C4552: '*': result of expression not used
+D:\3DGraphicsProgrammFall2022\M\Framework\Math\Inc\Vector2.h(30,49): warning C4552: '/': result of expression not used
+D:\3DGraphicsProgrammFall2022\M\Framework\Math\Inc\Vector2.h(30,56): warning C4552: '/': result of expression not used
   Graphics.vcxproj -> D:\3DGraphicsProgrammFall2022\M\x64\Debug\Graphics.lib
