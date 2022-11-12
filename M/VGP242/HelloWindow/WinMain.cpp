@@ -1,24 +1,20 @@
-#include "Core/Inc/Core.h"
+#include "M/Inc/M.h"
+
+enum class states : size_t
+{
+    GameState = 0
+};
+class GameState : public M::AppState
+{
+
+};
 
 int WINAPI WinMain(HINSTANCE instance, HINSTANCE, LPSTR, int)
 {
-    M::Core::Window newWindow;
-    newWindow.Initialize(instance, L"Hello Window", 1920, 1080);
+    M::App& mainApp = M::MainApp();
 
-    while (true)
-    {
-        newWindow.ProcessMesage();
-        if (!newWindow.IsActive())
-        {
-            break;
-        }
-        if (GetAsyncKeyState(VK_ESCAPE))
-        {
-            break;
-        }
-    }
-
-    newWindow.Terminate();
+    mainApp.AddState<GameState>((size_t)states::GameState);
+    mainApp.Run();
 
     return 0;
 }

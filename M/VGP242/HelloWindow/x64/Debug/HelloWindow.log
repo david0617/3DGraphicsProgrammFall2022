@@ -1,2 +1,16 @@
 ﻿  WinMain.cpp
+D:\3DGraphicsProgrammFall2022\M\Framework\Math\Inc\Vector2.h(26,54): warning C4552: '+': result of expression not used
+D:\3DGraphicsProgrammFall2022\M\Framework\Math\Inc\Vector2.h(26,65): warning C4552: '+': result of expression not used
+D:\3DGraphicsProgrammFall2022\M\Framework\Math\Inc\Vector2.h(27,54): warning C4552: '-': result of expression not used
+D:\3DGraphicsProgrammFall2022\M\Framework\Math\Inc\Vector2.h(27,65): warning C4552: '-': result of expression not used
+D:\3DGraphicsProgrammFall2022\M\Framework\Math\Inc\Vector2.h(28,54): warning C4552: '*': result of expression not used
+D:\3DGraphicsProgrammFall2022\M\Framework\Math\Inc\Vector2.h(28,65): warning C4552: '*': result of expression not used
+D:\3DGraphicsProgrammFall2022\M\Framework\Math\Inc\Vector2.h(29,49): warning C4552: '*': result of expression not used
+D:\3DGraphicsProgrammFall2022\M\Framework\Math\Inc\Vector2.h(29,56): warning C4552: '*': result of expression not used
+D:\3DGraphicsProgrammFall2022\M\Framework\Math\Inc\Vector2.h(30,49): warning C4552: '/': result of expression not used
+D:\3DGraphicsProgrammFall2022\M\Framework\Math\Inc\Vector2.h(30,56): warning C4552: '/': result of expression not used
+D:\3DGraphicsProgrammFall2022\M\Engine\M\Inc\App.h(22,21): warning C4477: 'snprintf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'double'
+D:\3DGraphicsProgrammFall2022\M\VGP242\HelloWindow\WinMain.cpp(16): message : see reference to function template instantiation 'void M::App::AddState<GameState>(size_t)' being compiled
+D:\3DGraphicsProgrammFall2022\M\Engine\M\Inc\App.h(22,21): warning C4474: 'snprintf' : too many arguments passed for format string
+D:\3DGraphicsProgrammFall2022\M\Engine\M\Inc\App.h(22,21): message : placeholders and their parameters expect 1 variadic arguments, but 2 were provided
   HelloWindow.vcxproj -> D:\3DGraphicsProgrammFall2022\M\x64\Debug\HelloWindow.exe
