@@ -23,6 +23,9 @@ void App::Run()
     ASSERT(mCurrentState, "App -- no app state found!");
     mCurrentState->Initialize();
 
+    auto handle = myWindow.GetWindowHandle();
+    Graphics::GraphicsSystem::StaticInitializ(handle, false);
+
     mRunning = true;
     while (mRunning)
     {
@@ -48,6 +51,7 @@ void App::Run()
 
     mCurrentState->Terminate();
 
+    Graphics::GraphicsSystem::StaticTerminate();
     myWindow.Terminate();
 }
 

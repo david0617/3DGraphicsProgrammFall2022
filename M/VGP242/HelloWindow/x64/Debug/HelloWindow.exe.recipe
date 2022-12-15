@@ -7,9 +7,5 @@
   </ProjectOutputs>
   <ContentFiles />
   <SatelliteDlls />
-  <NonRecipeFileRefs>
-    <NonRecipeFileRef>
-      <FullPath>D:\3DGraphicsProgrammFall2022\M\Framework\Core\Core.vcxproj</FullPath>
-    </NonRecipeFileRef>
-  </NonRecipeFileRefs>
+  <NonRecipeFileRefs />
 </Project>

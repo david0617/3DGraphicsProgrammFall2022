@@ -25,6 +25,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "M", "Engine\M\M.vcxproj", "
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Graphics", "Framework\Graphics\Graphics.vcxproj", "{B2D0A8B6-CDFE-44C6-8ED8-B42256867FCC}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "02_HelloGraphics", "VGP242\02_HelloGraphics\02_HelloGraphics.vcxproj", "{0964F00D-4131-474E-A834-BC39BBEC9799}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -89,6 +91,14 @@ Global
 		{B2D0A8B6-CDFE-44C6-8ED8-B42256867FCC}.Release|x64.Build.0 = Release|x64
 		{B2D0A8B6-CDFE-44C6-8ED8-B42256867FCC}.Release|x86.ActiveCfg = Release|Win32
 		{B2D0A8B6-CDFE-44C6-8ED8-B42256867FCC}.Release|x86.Build.0 = Release|Win32
+		{0964F00D-4131-474E-A834-BC39BBEC9799}.Debug|x64.ActiveCfg = Debug|x64
+		{0964F00D-4131-474E-A834-BC39BBEC9799}.Debug|x64.Build.0 = Debug|x64
+		{0964F00D-4131-474E-A834-BC39BBEC9799}.Debug|x86.ActiveCfg = Debug|Win32
+		{0964F00D-4131-474E-A834-BC39BBEC9799}.Debug|x86.Build.0 = Debug|Win32
+		{0964F00D-4131-474E-A834-BC39BBEC9799}.Release|x64.ActiveCfg = Release|x64
+		{0964F00D-4131-474E-A834-BC39BBEC9799}.Release|x64.Build.0 = Release|x64
+		{0964F00D-4131-474E-A834-BC39BBEC9799}.Release|x86.ActiveCfg = Release|Win32
+		{0964F00D-4131-474E-A834-BC39BBEC9799}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -101,6 +111,7 @@ Global
 		{561467CC-2A14-46C0-8E9F-75397CC41FA3} = {9B31DD2E-6068-4903-BA2D-3C077161C388}
 		{659A4FEE-C614-447D-BA8C-92E2B4F70A6D} = {C4258660-6F34-48EC-821E-7CA47B64EABB}
 		{B2D0A8B6-CDFE-44C6-8ED8-B42256867FCC} = {1D29E837-D054-4011-AFEF-25A985D8F714}
+		{0964F00D-4131-474E-A834-BC39BBEC9799} = {9B31DD2E-6068-4903-BA2D-3C077161C388}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A44F0451-6418-433E-B075-97E58D9F98A9}

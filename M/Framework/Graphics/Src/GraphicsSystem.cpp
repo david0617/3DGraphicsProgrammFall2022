@@ -1,4 +1,4 @@
-#include "Precompiled.h"
+ #include "Precompiled.h"
 #include "GraphicsSystem.h"
 
 using namespace M;
@@ -25,6 +25,8 @@ LRESULT CALLBACK GraphicsSystem::GraphicsSystemMessageHandler(HWND handle, UINT 
         }
         }
     }
+
+    return sWindowMessageHandler.ForwardMessage(handle, message, wparam, lparam);
 }
 
 void GraphicsSystem::StaticInitializ(HWND window, bool fullscreen)
@@ -100,7 +102,7 @@ void GraphicsSystem::Initialize(HWND window, bool fullscreen)
 
     Resize(GetBackBufferWidth(), GetBackBufferHeight());
 
-    sWindowMessageHandler.Hook(window, GraphicsSystemMessageHandler);
+    //sWindowMessageHandler.Hook(window, GraphicsSystemMessageHandler);
 }
 
 void GraphicsSystem::Terminate()
@@ -117,42 +119,99 @@ void GraphicsSystem::Terminate()
 
 void GraphicsSystem::BeginRender()
 {
-
+    mImmediateContext->OMSetRenderTargets(1, &mRenderTargetView, mDepthStencilView);
+    mImmediateContext->ClearRenderTargetView(mRenderTargetView, (FLOAT*)(&mClearClolr));
+    mImmediateContext->ClearDepthStencilView(mDepthStencilView, D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, 1.0f, 0);
 }
 
 void GraphicsSystem::ENdRender()
 {
-
+    mSwapChain->Present(mVSync, 0);
 }
 
 void GraphicsSystem::ToggleFullscreen()
 {
-
+    BOOL fullScreen;
+    mSwapChain->GetFullscreenState(&fullScreen, nullptr);
+    mSwapChain->SetFullscreenState(!fullScreen, nullptr);
 }
 
 void GraphicsSystem::Resize(uint32_t width, uint32_t height)
 {
+    mImmediateContext->OMSetRenderTargets(0, nullptr, nullptr);
 
+    safeRealease(mRenderTargetView);
+    safeRealease(mDepthStencilView);
+
+    HRESULT hr;
+    if (width != GetBackBufferWidth() || height != GetBackBufferHeight())
+    {
+        hr = mSwapChain->ResizeBuffers(0, 0, 0, DXGI_FORMAT_UNKNOWN, 0);
+        ASSERT(SUCCEEDED(hr), "[Error] faild to resize swap chain buffer");
+
+        mSwapChain->GetDesc(&mSwapChainDesc);
+    }
+
+    ID3D11Texture2D* backBuffer = nullptr;
+    hr = mSwapChain->GetBuffer(0, IID_PPV_ARGS(&backBuffer));
+    ASSERT(SUCCEEDED(hr), "[Error] failed to access swap chain view");
+
+    hr = mD3DDevice->CreateRenderTargetView(backBuffer, nullptr, &mRenderTargetView);
+    safeRealease(backBuffer);
+    ASSERT(SUCCEEDED(hr), "[Error] failed create render target view");
+
+    //Depth stencil buffed
+    D3D11_TEXTURE2D_DESC descDepth = {};
+    descDepth.Width = GetBackBufferWidth();
+    descDepth.Height = GetBackBufferHeight();
+    descDepth.MipLevels = 1;
+    descDepth.ArraySize = 1;
+    descDepth.Format = DXGI_FORMAT_D24_UNORM_S8_UINT;
+    descDepth.SampleDesc.Count = 1;
+    descDepth.SampleDesc.Quality = 0;
+    descDepth.Usage = D3D11_USAGE_DEFAULT;
+    descDepth.BindFlags = D3D11_BIND_DEPTH_STENCIL;
+    descDepth.CPUAccessFlags = 0;
+    descDepth.MiscFlags = 0;
+    hr = mD3DDevice->CreateTexture2D(&descDepth, nullptr, &mDepthStencilBuffer);
+    ASSERT(SUCCEEDED(hr), "[Error] faild create deapth stencil buffer");
+
+    //Depth stencil view
+    D3D11_DEPTH_STENCIL_VIEW_DESC descDSV = {};
+    descDSV.Format = descDepth.Format;
+    descDSV.ViewDimension = D3D11_DSV_DIMENSION_TEXTURE2D;
+    descDSV.Texture2D.MipSlice = 0;
+    hr = mD3DDevice->CreateDepthStencilView(mDepthStencilBuffer, &descDSV, &mDepthStencilView);
+    ASSERT(SUCCEEDED(hr), "[Error] failed create depth stencil view");
+
+    //setup the viewport
+    mViewport.Width = static_cast<float>(GetBackBufferWidth());
+    mViewport.Height = static_cast<float>(GetBackBufferHeight());
+    mViewport.MinDepth = 0.0f;
+    mViewport.MaxDepth = 1.0f;
+    mViewport.TopLeftX = 0;
+    mViewport.TopLeftY = 0;
+    mImmediateContext->RSSetViewports(1, &mViewport);
 }
 
 void GraphicsSystem::ResetRenderTarget()
 {
-
+    mImmediateContext->OMSetRenderTargets(1, &mRenderTargetView, mDepthStencilView);
 }
 
 void GraphicsSystem::ResetViewport()
 {
-
+    mImmediateContext->RSSetViewports(1, &mViewport);
 }
 
 void GraphicsSystem::SetClearColors(Color clearColor)
 {
-
+    mClearClolr = clearColor;
 }
 
 void GraphicsSystem::SetVSync(bool vSync)
 {
-
+    mVSync = vSync ? 1 : 0;
 }
 
 uint32_t GraphicsSystem::GetBackBufferWidth() const

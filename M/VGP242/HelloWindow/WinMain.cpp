@@ -1,4 +1,4 @@
-#include "M/Inc/M.h"
+#include <M/Inc/M.h>
 
 enum class states : size_t
 {
@@ -6,7 +6,8 @@ enum class states : size_t
 };
 class GameState : public M::AppState
 {
-
+public:
+    virtual ~GameState() = default;
 };
 
 int WINAPI WinMain(HINSTANCE instance, HINSTANCE, LPSTR, int)
