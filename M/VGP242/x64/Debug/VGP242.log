@@ -1,4 +1,0 @@
-﻿  WinMain.cpp
-D:\3DGraphicsProgrammFall2022\M\VGP242\WinMain.cpp(7,9): warning C4474: 'snprintf' : too many arguments passed for format string
-D:\3DGraphicsProgrammFall2022\M\VGP242\WinMain.cpp(7,9): message : placeholders and their parameters expect 0 variadic arguments, but 1 were provided
-  VGP242.vcxproj -> D:\3DGraphicsProgrammFall2022\M\x64\Debug\VGP242.exe

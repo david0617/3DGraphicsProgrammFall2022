@@ -2,6 +2,6 @@
 
 namespace M::Core::TimeUtil
 {
-    float GetTime();
-    float GetDelaTime();
+	float GetTime();
+	float GetDeltaTime();
 }

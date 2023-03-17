@@ -1,21 +1,25 @@
 #include "Precompiled.h"
 #include "../Inc/TimeUtil.h"
 
+using std::chrono::high_resolution_clock;
+using std::chrono::duration_cast;
+
+
 float M::Core::TimeUtil::GetTime()
 {
-    // get the difference since the start time
-    static const auto startTime = std::chrono::high_resolution_clock::now();
-    const auto currentTime = std::chrono::high_resolution_clock::now();
-    const auto milliseconds = std::chrono::duration_cast < std::chrono::microseconds > (currentTime - startTime).count();
-    return milliseconds / 1000.f;
+	//Gets the difference since the start
+	static const auto startTime = high_resolution_clock::now();
+	const auto currentTime = high_resolution_clock::now();
+	const auto milliseconds = duration_cast<std::chrono::milliseconds>(currentTime - startTime).count();
+	return milliseconds / 1000.0f;
 }
 
-float M::Core::TimeUtil::GetDelaTime()
+float M::Core::TimeUtil::GetDeltaTime()
 {
-    // get the difference since the last time we checked
-    static auto lastCallTime = std::chrono::high_resolution_clock::now();
-    const auto currentTime = std::chrono::high_resolution_clock::now();
-    const auto milliseconds = std::chrono::duration_cast <std::chrono::milliseconds>(currentTime - lastCallTime).count();
-    lastCallTime = currentTime;
-    return milliseconds / 1000.f;
+	//Gets the difference since last check 
+	static auto lastCallTime = high_resolution_clock::now();
+	const auto currentTime = high_resolution_clock::now();
+	const auto milliseconds = duration_cast<std::chrono::milliseconds>(currentTime - lastCallTime).count();
+	lastCallTime = currentTime;
+	return milliseconds / 1000.0f;
 }

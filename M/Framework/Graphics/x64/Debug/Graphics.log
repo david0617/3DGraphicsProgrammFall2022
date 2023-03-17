@@ -1,49 +1,34 @@
-﻿  GraphicsSystem.cpp
-D:\3DGraphicsProgrammFall2022\M\Framework\Graphics\Src\GraphicsSystem.cpp(34,5): warning C4477: 'snprintf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'double'
-D:\3DGraphicsProgrammFall2022\M\Framework\Graphics\Src\GraphicsSystem.cpp(34,5): warning C4477: 'snprintf' : format string '%d' requires an argument of type 'int', but variadic argument 2 has type 'const char *'
-D:\3DGraphicsProgrammFall2022\M\Framework\Graphics\Src\GraphicsSystem.cpp(34,5): warning C4313: 'snprintf': '%d' in format string conflicts with argument 2 of type 'const char *'
-D:\3DGraphicsProgrammFall2022\M\Framework\Graphics\Src\GraphicsSystem.cpp(34,5): warning C4474: 'snprintf' : too many arguments passed for format string
-D:\3DGraphicsProgrammFall2022\M\Framework\Graphics\Src\GraphicsSystem.cpp(34,5): message : placeholders and their parameters expect 2 variadic arguments, but 3 were provided
-D:\3DGraphicsProgrammFall2022\M\Framework\Graphics\Src\GraphicsSystem.cpp(50,5): warning C4477: 'snprintf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'double'
-D:\3DGraphicsProgrammFall2022\M\Framework\Graphics\Src\GraphicsSystem.cpp(50,5): warning C4477: 'snprintf' : format string '%d' requires an argument of type 'int', but variadic argument 2 has type 'const char *'
-D:\3DGraphicsProgrammFall2022\M\Framework\Graphics\Src\GraphicsSystem.cpp(50,5): warning C4313: 'snprintf': '%d' in format string conflicts with argument 2 of type 'const char *'
-D:\3DGraphicsProgrammFall2022\M\Framework\Graphics\Src\GraphicsSystem.cpp(50,5): warning C4474: 'snprintf' : too many arguments passed for format string
-D:\3DGraphicsProgrammFall2022\M\Framework\Graphics\Src\GraphicsSystem.cpp(50,5): message : placeholders and their parameters expect 2 variadic arguments, but 3 were provided
-D:\3DGraphicsProgrammFall2022\M\Framework\Graphics\Src\GraphicsSystem.cpp(56,5): warning C4477: 'snprintf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'double'
-D:\3DGraphicsProgrammFall2022\M\Framework\Graphics\Src\GraphicsSystem.cpp(56,5): warning C4477: 'snprintf' : format string '%d' requires an argument of type 'int', but variadic argument 2 has type 'const char *'
-D:\3DGraphicsProgrammFall2022\M\Framework\Graphics\Src\GraphicsSystem.cpp(56,5): warning C4313: 'snprintf': '%d' in format string conflicts with argument 2 of type 'const char *'
-D:\3DGraphicsProgrammFall2022\M\Framework\Graphics\Src\GraphicsSystem.cpp(56,5): warning C4474: 'snprintf' : too many arguments passed for format string
-D:\3DGraphicsProgrammFall2022\M\Framework\Graphics\Src\GraphicsSystem.cpp(56,5): message : placeholders and their parameters expect 2 variadic arguments, but 3 were provided
-D:\3DGraphicsProgrammFall2022\M\Framework\Graphics\Src\GraphicsSystem.cpp(78,31): warning C4805: '!=': unsafe mix of type 'BOOL' and type 'bool' in operation
-D:\3DGraphicsProgrammFall2022\M\Framework\Graphics\Src\GraphicsSystem.cpp(78,28): warning C4552: '!=': result of expression not used
-D:\3DGraphicsProgrammFall2022\M\Framework\Graphics\Src\GraphicsSystem.cpp(99,5): warning C4477: 'snprintf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'double'
-D:\3DGraphicsProgrammFall2022\M\Framework\Graphics\Src\GraphicsSystem.cpp(99,5): warning C4477: 'snprintf' : format string '%d' requires an argument of type 'int', but variadic argument 2 has type 'const char *'
-D:\3DGraphicsProgrammFall2022\M\Framework\Graphics\Src\GraphicsSystem.cpp(99,5): warning C4313: 'snprintf': '%d' in format string conflicts with argument 2 of type 'const char *'
-D:\3DGraphicsProgrammFall2022\M\Framework\Graphics\Src\GraphicsSystem.cpp(99,5): warning C4474: 'snprintf' : too many arguments passed for format string
-D:\3DGraphicsProgrammFall2022\M\Framework\Graphics\Src\GraphicsSystem.cpp(99,5): message : placeholders and their parameters expect 2 variadic arguments, but 3 were provided
-D:\3DGraphicsProgrammFall2022\M\Framework\Graphics\Src\GraphicsSystem.cpp(150,9): warning C4477: 'snprintf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'double'
-D:\3DGraphicsProgrammFall2022\M\Framework\Graphics\Src\GraphicsSystem.cpp(150,9): warning C4477: 'snprintf' : format string '%d' requires an argument of type 'int', but variadic argument 2 has type 'const char *'
-D:\3DGraphicsProgrammFall2022\M\Framework\Graphics\Src\GraphicsSystem.cpp(150,9): warning C4313: 'snprintf': '%d' in format string conflicts with argument 2 of type 'const char *'
-D:\3DGraphicsProgrammFall2022\M\Framework\Graphics\Src\GraphicsSystem.cpp(150,9): warning C4474: 'snprintf' : too many arguments passed for format string
-D:\3DGraphicsProgrammFall2022\M\Framework\Graphics\Src\GraphicsSystem.cpp(150,9): message : placeholders and their parameters expect 2 variadic arguments, but 3 were provided
-D:\3DGraphicsProgrammFall2022\M\Framework\Graphics\Src\GraphicsSystem.cpp(157,5): warning C4477: 'snprintf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'double'
-D:\3DGraphicsProgrammFall2022\M\Framework\Graphics\Src\GraphicsSystem.cpp(157,5): warning C4477: 'snprintf' : format string '%d' requires an argument of type 'int', but variadic argument 2 has type 'const char *'
-D:\3DGraphicsProgrammFall2022\M\Framework\Graphics\Src\GraphicsSystem.cpp(157,5): warning C4313: 'snprintf': '%d' in format string conflicts with argument 2 of type 'const char *'
-D:\3DGraphicsProgrammFall2022\M\Framework\Graphics\Src\GraphicsSystem.cpp(157,5): warning C4474: 'snprintf' : too many arguments passed for format string
-D:\3DGraphicsProgrammFall2022\M\Framework\Graphics\Src\GraphicsSystem.cpp(157,5): message : placeholders and their parameters expect 2 variadic arguments, but 3 were provided
-D:\3DGraphicsProgrammFall2022\M\Framework\Graphics\Src\GraphicsSystem.cpp(161,5): warning C4477: 'snprintf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'double'
-D:\3DGraphicsProgrammFall2022\M\Framework\Graphics\Src\GraphicsSystem.cpp(161,5): warning C4477: 'snprintf' : format string '%d' requires an argument of type 'int', but variadic argument 2 has type 'const char *'
-D:\3DGraphicsProgrammFall2022\M\Framework\Graphics\Src\GraphicsSystem.cpp(161,5): warning C4313: 'snprintf': '%d' in format string conflicts with argument 2 of type 'const char *'
-D:\3DGraphicsProgrammFall2022\M\Framework\Graphics\Src\GraphicsSystem.cpp(161,5): warning C4474: 'snprintf' : too many arguments passed for format string
-D:\3DGraphicsProgrammFall2022\M\Framework\Graphics\Src\GraphicsSystem.cpp(161,5): message : placeholders and their parameters expect 2 variadic arguments, but 3 were provided
-D:\3DGraphicsProgrammFall2022\M\Framework\Graphics\Src\GraphicsSystem.cpp(177,5): warning C4477: 'snprintf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'double'
-D:\3DGraphicsProgrammFall2022\M\Framework\Graphics\Src\GraphicsSystem.cpp(177,5): warning C4477: 'snprintf' : format string '%d' requires an argument of type 'int', but variadic argument 2 has type 'const char *'
-D:\3DGraphicsProgrammFall2022\M\Framework\Graphics\Src\GraphicsSystem.cpp(177,5): warning C4313: 'snprintf': '%d' in format string conflicts with argument 2 of type 'const char *'
-D:\3DGraphicsProgrammFall2022\M\Framework\Graphics\Src\GraphicsSystem.cpp(177,5): warning C4474: 'snprintf' : too many arguments passed for format string
-D:\3DGraphicsProgrammFall2022\M\Framework\Graphics\Src\GraphicsSystem.cpp(177,5): message : placeholders and their parameters expect 2 variadic arguments, but 3 were provided
-D:\3DGraphicsProgrammFall2022\M\Framework\Graphics\Src\GraphicsSystem.cpp(185,5): warning C4477: 'snprintf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'double'
-D:\3DGraphicsProgrammFall2022\M\Framework\Graphics\Src\GraphicsSystem.cpp(185,5): warning C4477: 'snprintf' : format string '%d' requires an argument of type 'int', but variadic argument 2 has type 'const char *'
-D:\3DGraphicsProgrammFall2022\M\Framework\Graphics\Src\GraphicsSystem.cpp(185,5): warning C4313: 'snprintf': '%d' in format string conflicts with argument 2 of type 'const char *'
-D:\3DGraphicsProgrammFall2022\M\Framework\Graphics\Src\GraphicsSystem.cpp(185,5): warning C4474: 'snprintf' : too many arguments passed for format string
-D:\3DGraphicsProgrammFall2022\M\Framework\Graphics\Src\GraphicsSystem.cpp(185,5): message : placeholders and their parameters expect 2 variadic arguments, but 3 were provided
-  Graphics.vcxproj -> D:\3DGraphicsProgrammFall2022\M\x64\Debug\Graphics.lib
+﻿  Precompiles.cpp
+  BlendState.cpp
+  Camera.cpp
+  ConstantBuffer.cpp
+  DebugUI.cpp
+  GrainEffect.cpp
+C:\Users\david\Downloads\New folder\M\Framework\Graphics\Src\GrainEffect.cpp(64,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\david\Downloads\New folder\M\Framework\Graphics\Src\GrainEffect.cpp(66,19): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  GraphicsSystem.cpp
+  LightTypes.cpp
+  MeshBuffer.cpp
+  MeshBuilder.cpp
+C:\Users\david\Downloads\New folder\M\Framework\Graphics\Src\MeshBuilder.cpp(95,50): warning C4267: 'initializing': conversion from 'size_t' to 'uint32_t', possible loss of data
+C:\Users\david\Downloads\New folder\M\Framework\Graphics\Src\MeshBuilder.cpp(275,21): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\david\Downloads\New folder\M\Framework\Graphics\Src\MeshBuilder.cpp(334,21): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\david\Downloads\New folder\M\Framework\Graphics\Src\MeshBuilder.cpp(369,21): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  ModelIO.cpp
+  PixelShader.cpp
+  PostProcessingEffect.cpp
+  RenderObject.cpp
+  RenderTarget.cpp
+C:\Users\david\Downloads\New folder\M\Framework\Graphics\Src\RenderTarget.cpp(83,80): warning C4244: 'argument': conversion from 'float' to 'UINT8', possible loss of data
+  Sampler.cpp
+  ShadowEffect.cpp
+  SimpleDraw.cpp
+C:\Users\david\Downloads\New folder\M\Framework\Graphics\Src\SimpleDraw.cpp(13,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  StandardEffect.cpp
+  Texture.cpp
+  TextureManager.cpp
+  Generating Code...
+  Compiling...
+  VertexShader.cpp
+  Generating Code...
+  Graphics.vcxproj -> C:\Users\david\Downloads\New folder\M\M\x64\Debug\Graphics.lib

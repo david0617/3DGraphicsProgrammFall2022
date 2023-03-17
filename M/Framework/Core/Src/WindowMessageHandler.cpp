@@ -1,24 +1,26 @@
 #include "Precompiled.h"
-#include "Core/Inc/DebugUtil.h"
-#include "Core/Inc/Core.h"
+#include "../Inc/DebugUtil.h"
+#include "../Inc/WindowMessageHandler.h"
 
 using namespace M::Core;
+
 
 void WindowMessageHandler::Hook(HWND window, Callback cb)
 {
     mWindow = window;
-    mPreviousCallback = (Callback)GetWindowLong(window, GWLP_WNDPROC);
+    mPreviousCallback = (Callback)GetWindowLongPtrA(window, GWLP_WNDPROC);
     SetWindowLongPtrA(window, GWLP_WNDPROC, (LONG_PTR)cb);
 }
 
-void WindowMessageHandler::UnHook()
+void WindowMessageHandler::Unhook()
 {
     SetWindowLongPtrA(mWindow, GWLP_WNDPROC, (LONG_PTR)mPreviousCallback);
     mWindow = nullptr;
 }
 
-LRESULT WindowMessageHandler::ForwardMessage(HWND window, UINT message, WPARAM wParam, LPARAM lParam)
+LPARAM WindowMessageHandler::ForwardMessage(HWND window, UINT message, WPARAM wParam, LPARAM lParam)
 {
-    ASSERT(mPreviousCallback, "windowMessageHandler -- No Callback is hooked.");
+    ASSERT(mPreviousCallback, "WindowMessageHandler -- No Callback is hooked");
     return CallWindowProcA((WNDPROC)mPreviousCallback, window, message, wParam, lParam);
+
 }

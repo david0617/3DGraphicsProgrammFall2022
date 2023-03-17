@@ -2,10 +2,10 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="Inc">
-      <UniqueIdentifier>{d733656c-c0c4-4fd7-ba6c-2e32c0c5470f}</UniqueIdentifier>
+      <UniqueIdentifier>{ecfcbe5c-f65f-4d6b-b3c6-ff460c4640de}</UniqueIdentifier>
     </Filter>
     <Filter Include="Src">
-      <UniqueIdentifier>{5690ef8e-8ae1-4bd6-878d-48a231a0fd4c}</UniqueIdentifier>
+      <UniqueIdentifier>{6b347f31-a85e-41a7-84d1-450b74e7b5ca}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -21,13 +21,19 @@
     <ClInclude Include="Inc\Vector3.h">
       <Filter>Inc</Filter>
     </ClInclude>
-    <ClInclude Include="Inc\Vector2.h">
-      <Filter>Inc</Filter>
-    </ClInclude>
     <ClInclude Include="Inc\Vector4.h">
       <Filter>Inc</Filter>
     </ClInclude>
+    <ClInclude Include="Inc\Vector2.h">
+      <Filter>Inc</Filter>
+    </ClInclude>
     <ClInclude Include="Inc\Constants.h">
+      <Filter>Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\Matrix4.h">
+      <Filter>Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\Quaternion.h">
       <Filter>Inc</Filter>
     </ClInclude>
   </ItemGroup>
@@ -47,7 +53,7 @@
     <ClCompile Include="Src\Vector4.cpp">
       <Filter>Src</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Constants.cpp">
+    <ClCompile Include="Src\Quaternion.cpp">
       <Filter>Src</Filter>
     </ClCompile>
   </ItemGroup>

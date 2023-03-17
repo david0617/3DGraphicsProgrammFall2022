@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{561467cc-2a14-46c0-8e9f-75397cc41fa3}</ProjectGuid>
+    <ProjectGuid>{8ce75686-3725-4711-a70f-d11221820702}</ProjectGuid>
     <RootNamespace>HelloWindow</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -143,12 +143,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="WinMain.cpp" />
+    <ProjectReference Include="..\..\Engine\M\M.vcxproj">
+      <Project>{e5249030-8b6b-4db0-b56e-b7e5a7786d7b}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Framework\Core\Core.vcxproj">
+      <Project>{c42692fd-92dc-44bb-accb-62fe4299cd79}</Project>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Engine\M\M.vcxproj">
-      <Project>{659a4fee-c614-447d-ba8c-92e2b4f70a6d}</Project>
-    </ProjectReference>
+    <ClCompile Include="WinMain.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

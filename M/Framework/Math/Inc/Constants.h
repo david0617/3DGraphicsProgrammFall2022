@@ -1,11 +1,9 @@
 #pragma once
-
-namespace M::MMath
+namespace M::MMath::Constants
 {
-    constexpr double Pi = 3.14159265358979323846;
-    constexpr double HalfPi = Pi / 2;
-    constexpr double TwoPi = Pi * 2;
-
-    constexpr double DegToRad(float degrees);
-    constexpr double RadToDeg(float radians);
+    constexpr float Pi = 3.14159265f;
+    constexpr float HalfPi = Pi / 2;
+    constexpr float TwoPi = Pi * 2;
+    constexpr float DegToRad = Pi / 180.0f;
+    constexpr float RadToDeg = 180.0f / Pi;
 }

@@ -1,13 +1,13 @@
 #pragma once
 
 #define WIN32_LEAN_AND_MEAN
-#define NOMINMAX
+#define NOMINAX
 
-//win32 headers
-#include <objbase.h>
-#include <Windows.h>
+//win32 Headers
+#include<objbase.h>
+#include<Windows.h>
 
-//std headers
+//std Headers
 #include <algorithm>
 #include <array>
 #include <atomic>
@@ -25,3 +25,4 @@
 #include <unordered_map>
 #include <variant>
 #include <vector>
+

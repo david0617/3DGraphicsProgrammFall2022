@@ -1,3 +1,2 @@
 #pragma once
-
-#include "../../Math/Inc/Common.h"
+#include "Math/Inc/Common.h"

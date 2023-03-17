@@ -18,38 +18,10 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Inc\Colors.h" />
-    <ClInclude Include="Inc\Common.h" />
-    <ClInclude Include="Inc\Graphics.h" />
-    <ClInclude Include="Inc\GraphicsSystem.h" />
-    <ClInclude Include="Src\Precompiled.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Src\GraphicsSystem.cpp" />
-    <ClCompile Include="Src\Precompiled.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Precompiled.h</PrecompiledHeaderFile>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Precompiled.h</PrecompiledHeaderFile>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Precompiled.h</PrecompiledHeaderFile>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Precompiled.h</PrecompiledHeaderFile>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Core\Core.vcxproj">
-      <Project>{d0802ea7-b90d-4f1a-ac19-337d9ccb6198}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\Math\Math.vcxproj">
-      <Project>{9e4af5d8-8d5a-4609-88f5-af45e7a17527}</Project>
-    </ProjectReference>
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{b2d0a8b6-cdfe-44c6-8ed8-b42256867fcc}</ProjectGuid>
+    <ProjectGuid>{345afc98-2699-48ce-89ab-01255b80d031}</ProjectGuid>
     <RootNamespace>Graphics</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -120,8 +92,6 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>Precompiled.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -137,8 +107,6 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>Precompiled.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -154,9 +122,6 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp17</LanguageStandard>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>Precompiled.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -172,8 +137,6 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>Precompiled.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -183,6 +146,78 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="Inc\BlendState.h" />
+    <ClInclude Include="Inc\Camera.h" />
+    <ClInclude Include="Inc\Colours.h" />
+    <ClInclude Include="Inc\Common.h" />
+    <ClInclude Include="Inc\ConstantBuffer.h" />
+    <ClInclude Include="Inc\DebugUI.h" />
+    <ClInclude Include="Inc\GrainEffect.h" />
+    <ClInclude Include="Inc\Graphics.h" />
+    <ClInclude Include="Inc\GraphicsSystem.h" />
+    <ClInclude Include="Inc\LightTypes.h" />
+    <ClInclude Include="Inc\Material.h" />
+    <ClInclude Include="Inc\MeshTypes.h" />
+    <ClInclude Include="Inc\MeshBuffer.h" />
+    <ClInclude Include="Inc\MeshBuilder.h" />
+    <ClInclude Include="Inc\Model.h" />
+    <ClInclude Include="Inc\ModelIO.h" />
+    <ClInclude Include="Inc\PixelShader.h" />
+    <ClInclude Include="Inc\PostProcessingEffect.h" />
+    <ClInclude Include="Inc\RenderObject.h" />
+    <ClInclude Include="Inc\RenderTarget.h" />
+    <ClInclude Include="Inc\Sampler.h" />
+    <ClInclude Include="Inc\ShadowEffect.h" />
+    <ClInclude Include="Inc\SimpleDraw.h" />
+    <ClInclude Include="Inc\StandardEffect.h" />
+    <ClInclude Include="Inc\Texture.h" />
+    <ClInclude Include="Inc\TextureManager.h" />
+    <ClInclude Include="Inc\Transform.h" />
+    <ClInclude Include="Inc\VertexShader.h" />
+    <ClInclude Include="Inc\VertexTypes.h" />
+    <ClInclude Include="Src\Precompiled.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Src\BlendState.cpp" />
+    <ClCompile Include="Src\Camera.cpp" />
+    <ClCompile Include="Src\ConstantBuffer.cpp" />
+    <ClCompile Include="Src\DebugUI.cpp" />
+    <ClCompile Include="Src\GrainEffect.cpp" />
+    <ClCompile Include="Src\GraphicsSystem.cpp" />
+    <ClCompile Include="Src\LightTypes.cpp" />
+    <ClCompile Include="Src\MeshBuffer.cpp" />
+    <ClCompile Include="Src\MeshBuilder.cpp" />
+    <ClCompile Include="Src\ModelIO.cpp" />
+    <ClCompile Include="Src\PixelShader.cpp" />
+    <ClCompile Include="Src\PostProcessingEffect.cpp" />
+    <ClCompile Include="Src\Precompiles.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Src\RenderObject.cpp" />
+    <ClCompile Include="Src\RenderTarget.cpp" />
+    <ClCompile Include="Src\Sampler.cpp" />
+    <ClCompile Include="Src\ShadowEffect.cpp" />
+    <ClCompile Include="Src\SimpleDraw.cpp" />
+    <ClCompile Include="Src\StandardEffect.cpp" />
+    <ClCompile Include="Src\Texture.cpp" />
+    <ClCompile Include="Src\TextureManager.cpp" />
+    <ClCompile Include="Src\VertexShader.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\External\ImGui\ImGui.vcxproj">
+      <Project>{200cab31-10ed-419a-be5d-b96ca2d4afa4}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Core\Core.vcxproj">
+      <Project>{c42692fd-92dc-44bb-accb-62fe4299cd79}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Math\Math.vcxproj">
+      <Project>{a7a01193-849b-4166-8cc6-a2e8ef546aa8}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

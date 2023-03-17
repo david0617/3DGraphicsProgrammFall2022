@@ -1,0 +1,4 @@
+C:\Users\Andrey\source\Workspaces\AndrewEngine\External\DirectXTK\Bin\Desktop_2019\x64\Debug\DirectXTK.lib
+C:\Users\Andrey\Desktop\AndrewEngine\AndrewEngine\External\DirectXTK\Bin\Desktop_2019\x64\Debug\DirectXTK.lib
+C:\Users\david\Downloads\New folder\AndrewEngine\External\DirectXTK\Bin\Desktop_2019\x64\Debug\DirectXTK.lib
+C:\Users\david\Downloads\New folder\M\External\DirectXTK\Bin\Desktop_2019\x64\Debug\DirectXTK.lib
