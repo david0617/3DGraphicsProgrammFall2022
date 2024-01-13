@@ -1,7 +1,7 @@
 #pragma once
-#include <SpringEngine/Inc/SpringEngine.h>
+#include <BobEngine/Inc/BobEngine.h>
 
-class GameState : public SpringEngine::AppState
+class GameState : public BobEngine::AppState
 {
 public:
 	virtual ~GameState() = default;
@@ -14,8 +14,8 @@ protected:
 	virtual void CreateShape() {}
 	struct Vertex
 	{
-		SpringEngine::Math::Vector3 position;
-		SpringEngine::Color color;
+		BobEngine::Math::Vector3 position;
+		BobEngine::Color color;
 	};
 
 	using Vertices = std::vector<Vertex>;

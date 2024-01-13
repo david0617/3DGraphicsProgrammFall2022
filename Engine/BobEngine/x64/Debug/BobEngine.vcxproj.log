@@ -1,0 +1,6 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(513,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (BobEngine.vcxproj.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  Precompiled.cpp
+  App.cpp
+  BobEngine.cpp
+  Generating Code...
+  BobEngine.vcxproj.vcxproj -> C:\Users\David yu\Downloads\SpringEngine\x64\Debug\BobEngine.lib

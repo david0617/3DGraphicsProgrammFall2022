@@ -1,9 +1,9 @@
 #include "GameState.h"
 
-using namespace SpringEngine;
-using namespace SpringEngine::Graphics;
-using namespace SpringEngine::Math;
-using namespace SpringEngine::Input;
+using namespace BobEngine;
+using namespace BobEngine::Graphics;
+using namespace BobEngine::Math;
+using namespace BobEngine::Input;
 
 void GameState::Initialize()
 {

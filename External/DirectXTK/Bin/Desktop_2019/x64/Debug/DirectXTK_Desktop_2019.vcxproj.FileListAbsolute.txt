@@ -1,0 +1,1 @@
+C:\Users\David yu\Downloads\SpringEngine\External\DirectXTK\Bin\Desktop_2019\x64\Debug\DirectXTK.lib

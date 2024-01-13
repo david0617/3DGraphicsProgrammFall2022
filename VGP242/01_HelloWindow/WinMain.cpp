@@ -1,6 +1,6 @@
-#include <SpringEngine/Inc/SpringEngine.h>
+#include <BobEngine/Inc/BobEngine.h>
 
-using namespace SpringEngine;
+using namespace BobEngine;
 
 class GameState : public AppState
 {
