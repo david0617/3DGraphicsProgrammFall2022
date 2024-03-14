@@ -1,7 +1,4 @@
-﻿  MeshBuilder.cpp
-C:\Users\David yu\Downloads\SpringEngine\Framework\Graphics\Src\MeshBuilder.cpp(247,91): warning C4267: 'argument': conversion from 'size_t' to 'uint32_t', possible loss of data
-  SimpleDraw.cpp
-  SimpleEffect.cpp
-  VertexShader.cpp
+﻿  SimpleEffect.cpp
+  StandardEffect.cpp
   Generating Code...
-  Graphics.vcxproj -> C:\Users\David yu\Downloads\SpringEngine\x64\Debug\Graphics.lib
+  Graphics.vcxproj -> D:\3DGraphicsProgrammFall2022\x64\Debug\Graphics.lib

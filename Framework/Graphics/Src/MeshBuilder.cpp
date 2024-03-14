@@ -336,7 +336,7 @@ Mesh MeshBuilder::CreateSphere(uint32_t slices, uint32_t rings, float radius)
 			float v = vStep * rPos;
 			
 			float x = radius * sin(rotation) * sin(phi);
-			float y = radius * cos(rotation);
+			float y = radius * cos(phi);
 			float z = radius * cos(rotation) * sin(phi);
 
 			Math::Vector3 postion = { x, y, z };

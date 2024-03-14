@@ -3,12 +3,13 @@
 #include "ConstantBuffer.h"
 #include "PixelShader.h"
 #include "Sampler.h"
+#include "LightType.h"
 #include "VertexShader.h"
 
 namespace BobEngine::Graphics
 {
     class Camera;
-    class RenderObjectd;
+    class RenderObject;
     class Texture;
 
     class StandardEffect
@@ -18,11 +19,12 @@ namespace BobEngine::Graphics
         void Terminate();
 
         void Begin();
-        void end();
+        void End();
 
         void Render(const RenderObject& renderObject);
 
         void SetCamera(const Camera& camera);
+        void setDirectionalLight(const DirectionalLight& directionalLight);
 
         void DebugUI();
 
@@ -30,15 +32,21 @@ namespace BobEngine::Graphics
         struct Transformdata
         {
             Math::Matrix4 wvp;
+            Math::Matrix4 world;
+            Math::Vector3 viewPosition;
+            float padding = 0.0f;
         };
         
         using TransformBuffer = TypedConstantBuffer<Transformdata>;
+        using LightBuffer = TypedConstantBuffer<DirectionalLight>;
 
         TransformBuffer mTransformBuffer;
+        LightBuffer mLightBuffer;
         Sampler mSampler;
         VertexShader mVertexShader;
         PixelShader mPixelShader;
 
         const Camera* mCamera = nullptr;
+        const DirectionalLight* mDirectionalLight = nullptr;
     };
 }

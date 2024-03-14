@@ -17,8 +17,11 @@ public:
 	void DebugUI() override;
 
 private:
+	void UpdateCameraControl(float deltaTime);
+
 	Camera mCamera;
+	DirectionalLight mDirectionalLight;
 	Mesh mSphere;
 	RenderObject mEarth;
-	SimpleEffect mEffect;
+	StandardEffect mStandardEffect;
 };

@@ -2,7 +2,7 @@
 
 #include "MeshBuffer.h"
 #include "Transform.h"
-#include "Texture.h"
+#include "TextureManager.h"
 
 namespace BobEngine::Graphics
 {
@@ -12,11 +12,13 @@ namespace BobEngine::Graphics
 		void Terminate()
 		{
 			meshBuffer.Terminate();
-			mDiffuseTexture.Terminate();
+			diffuseMapId = 0;
+			normalMapId = 0;
 		}
 
 		Transform transform;
 		MeshBuffer meshBuffer;
-		Texture mDiffuseTexture;
+		TextureId diffuseMapId;
+		TextureId normalMapId;
 	};
 }
