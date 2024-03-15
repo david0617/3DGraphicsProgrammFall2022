@@ -1,9 +1,10 @@
 #pragma once
 
 #include "ConstantBuffer.h"
+#include "LightType.h"
+#include "Material.h"
 #include "PixelShader.h"
 #include "Sampler.h"
-#include "LightType.h"
 #include "VertexShader.h"
 
 namespace BobEngine::Graphics
@@ -37,15 +38,30 @@ namespace BobEngine::Graphics
             float padding = 0.0f;
         };
         
+        struct SettingsData
+        {
+            int useDiffuseMap = 1;
+            int useNormalMap = 1;
+            int useSpecMap = 1;
+            int useBumpMap = 1;
+            float bumpWeight = 1.0f;
+            float padding[3];
+        };
+
         using TransformBuffer = TypedConstantBuffer<Transformdata>;
         using LightBuffer = TypedConstantBuffer<DirectionalLight>;
+        using MaterialBuffer = TypedConstantBuffer<Meaterial>;
+        using SettingBuffer = TypedConstantBuffer<SettingsData>;
 
         TransformBuffer mTransformBuffer;
         LightBuffer mLightBuffer;
+        MaterialBuffer mMaterialBuffer;
+        SettingBuffer mSettingsBuffer;
         Sampler mSampler;
         VertexShader mVertexShader;
         PixelShader mPixelShader;
 
+        SettingsData mSettingsData;
         const Camera* mCamera = nullptr;
         const DirectionalLight* mDirectionalLight = nullptr;
     };

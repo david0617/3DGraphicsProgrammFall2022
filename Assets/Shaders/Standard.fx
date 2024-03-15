@@ -6,6 +6,7 @@ cbuffer TransormBuffer : register(b0)
     matrix world;
     float3 viewPosition;
 }
+
 cbuffer LightBuffer : register(b1)
 {
 	float3 lightDirection;
@@ -14,8 +15,28 @@ cbuffer LightBuffer : register(b1)
     float4 lightSpecular;
 }
 
+cbuffer MaterialBuffer : register(b2)
+{
+    float4 materialAmbient;
+    float4 materialDiffuse;
+    float4 materialSpecular;
+    float4 materialEmissive;
+    float materialPower;
+}
+
+cbuffer SettingsBuffer : register(b3)
+{
+    bool useDiffuseMap;
+    bool useNormalMap;
+    bool useSpecMap;
+    bool useBumpMap;
+    float bumpWeight;
+}
+
 Texture2D textureMap : register(t0);
 Texture2D normalMap : register(t1);
+Texture2D specMap : register(t2);
+Texture2D bumpMap : register(t3);
 SamplerState textureSampler : register(s0);
 
 struct VS_INPUT
@@ -41,13 +62,21 @@ VS_OUTPUT VS(VS_INPUT input)
     matrix toWorld = world;
     matrix toNDC = wvp;
 	
+    float3 localPosition = input.position;
+    if (useBumpMap)
+    {
+        float4 bumpMapColor = bumpMap.SampleLevel(textureSampler, input.texCoord, 0.0f);
+        float bumpColor = (2.0f * bumpMapColor.r) - 1.0f;
+        localPosition += (input.normal * bumpColor * bumpWeight);
+    }
+    
 	VS_OUTPUT output;
-	output.position = mul(float4(input.position, 1.0f), toNDC);
+    output.position = mul(float4(localPosition, 1.0f), toNDC);
     output.worldNormal = mul(input.normal, (float3x3) toWorld);
     output.worldTangent = mul(input.tangent, (float3x3) toWorld);
 	output.texCoord = input.texCoord;
     output.dirToLight = -lightDirection;
-    output.dirToView = normalize(viewPosition - mul(float4(input.position, 1.0f), world).xyz);
+    output.dirToView = normalize(viewPosition - mul(float4(localPosition, 1.0f), world).xyz);
 	return output;
 }
 
@@ -56,31 +85,37 @@ float4 PS(VS_OUTPUT input) : SV_Target
     float3 n = normalize(input.worldNormal);
     
     // using normal map to get the new normal
-    float3 t = normalize(input.worldTangent);
-    float3 b = normalize(cross(n, t));
-    float3x3 tbnw = float3x3(t, b, n);
-    float4 normalMapColor = normalMap.Sample(textureSampler, input.texCoord);
-    float3 unpackedNormalmap = normalize(float3((normalMapColor.xy * 2.0f) - 1.0f, normalMapColor.z));
-    n = normalize(mul(unpackedNormalmap, tbnw));
-    
+    if (useNormalMap)
+    {
+        float3 t = normalize(input.worldTangent);
+        float3 b = normalize(cross(n, t));
+        float3x3 tbnw = float3x3(t, b, n);
+        float4 normalMapColor = normalMap.Sample(textureSampler, input.texCoord);
+        float3 unpackedNormalmap = normalize(float3((normalMapColor.xy * 2.0f) - 1.0f, normalMapColor.z));
+        n = normalize(mul(unpackedNormalmap, tbnw));
+    }
+        
     float3 light = normalize(input.dirToLight);
     float3 view = normalize(input.dirToView);
     
-    float4 ambient = lightAmbient;
+    float4 ambient = lightAmbient * materialAmbient;
     
     float d = saturate(dot(light, n));
-    float4 diffuse = d * lightDiffuse;
+    float4 diffuse = d * lightDiffuse * materialDiffuse;
     
     float3 r = reflect(-light, n);
     float base = saturate(dot(r, view));
-    float s = pow(base, 10);
-    float4 specular = s * lightSpecular;
+    float s = pow(base, materialPower);
+    float4 specular = s * lightSpecular * materialSpecular;
     
-    float4 diffuseMapColor = textureMap.Sample(textureSampler, input.texCoord);
+    float4 emissive = materialEmissive;
+    
+    float4 diffuseMapColor = (useDiffuseMap)? textureMap.Sample(textureSampler, input.texCoord) : 1.0f;
+    float4 specMapColor = (useSpecMap)? specMap.Sample(textureSampler, input.texCoord) : 1.0f;
     
     //return textureMap.Sample(textureSampler, input.texCoord);
     
-    float4 finalColor = (ambient + diffuse) * diffuseMapColor + specular;
+    float4 finalColor = (ambient + diffuse + emissive) * diffuseMapColor + (specular * specMapColor);
     
     return finalColor;
 }

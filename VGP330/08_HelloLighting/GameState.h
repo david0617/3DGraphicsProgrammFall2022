@@ -24,4 +24,10 @@ private:
 	Mesh mSphere;
 	RenderObject mEarth;
 	StandardEffect mStandardEffect;
+
+	Camera mRenderTargetCamera;
+	RenderTarget mRenderTarget;
+
+	bool mUseCelshading = false;
+	StandardEffect mCelShadingEffect;
 };
