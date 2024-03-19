@@ -1,4 +1,9 @@
-﻿  SimpleEffect.cpp
+﻿  ModelIo.cpp
+  ModelManager.cpp
+  RenderObject.cpp
+D:\3DGraphicsProgrammFall2022\Framework\Graphics\Src\RenderObject.cpp(18,5): warning C4477: 'snprintf' : format string '%d' requires an argument of type 'int', but variadic argument 4 has type 'BobEngine::Graphics::ModelId'
+D:\3DGraphicsProgrammFall2022\Framework\Graphics\Src\RenderObject.cpp(18,5): message : consider using '%zd' in the format string
+  SimpleEffect.cpp
   StandardEffect.cpp
   Generating Code...
   Graphics.vcxproj -> D:\3DGraphicsProgrammFall2022\x64\Debug\Graphics.lib

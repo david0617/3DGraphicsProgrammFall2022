@@ -1,1 +1,2 @@
-﻿
+﻿  WinMain.cpp
+LINK : fatal error LNK1104: cannot open file 'D:\3DGraphicsProgrammFall2022\x64\Debug\Graphics.lib'

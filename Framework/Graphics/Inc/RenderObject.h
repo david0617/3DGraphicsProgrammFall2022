@@ -4,28 +4,38 @@
 #include "MeshBuffer.h"
 #include "Transform.h"
 #include "TextureManager.h"
+#include "Model.h"
+#include "ModelManager.h"
 
 namespace BobEngine::Graphics
 {
 	class RenderObject
 	{
 	public:
-		void Terminate()
-		{
-			meshBuffer.Terminate();
-			diffuseMapId = 0;
-			normalMapId = 0;
-			specMapId = 0;
-			bumpMapId = 0;
-		}
+		void Terminate();
 
 		Transform transform;
 		MeshBuffer meshBuffer;
 		
-		Meaterial material;
+		ModelId modelId;
+		Material material;
 		TextureId diffuseMapId;
 		TextureId normalMapId;
 		TextureId specMapId;
 		TextureId bumpMapId;
 	};
+
+	using RenderGroup = std::vector<RenderObject>;
+	[[nodiscard]] RenderGroup CreateRenderGroup(ModelId id);
+	[[nodiscard]] RenderGroup CreateRenderGroup(const Model& model);
+	void CleanupRenderGroup(RenderGroup& renderGroup);
+
+	template<class Effect>
+	void DrawRenderGroup(Effect& effect, const RenderGroup& renderGroup)
+	{
+		for (const RenderObject& renderObject : renderGroup)
+		{
+			effect.Render(renderObject);
+		}
+	}
 }

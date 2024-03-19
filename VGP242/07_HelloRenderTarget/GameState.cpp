@@ -16,11 +16,11 @@ void GameState::Initialize()
 
 	MeshPX sphere = MeshBuilder::CreateSpherePX(60, 60, 1.0f);
 	mRenderObject.meshBuffer.Initialize(sphere);
-	mRenderObject.mDiffuseTexture.Initialize(L"../../Assets/Textures/misc/basketball.jpg");
+	//mRenderObject.mDiffuseTexture.Initialize(L"../../Assets/Textures/misc/basketball.jpg");
 
 	MeshPX sky = MeshBuilder::CreateSkySpherePX(60, 60, 10.0f);
 	mRenderObject2.meshBuffer.Initialize(sky);
-	mRenderObject2.mDiffuseTexture.Initialize(L"../../Assets/Textures/misc/concrete.jpg");
+	//mRenderObject2.mDiffuseTexture.Initialize(L"../../Assets/Textures/misc/concrete.jpg");
 
 	mSimpleEffect.Initialize();
 	mSimpleEffect.SetCamera(mCamera);

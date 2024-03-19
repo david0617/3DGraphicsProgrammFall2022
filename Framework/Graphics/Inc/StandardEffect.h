@@ -50,7 +50,7 @@ namespace BobEngine::Graphics
 
         using TransformBuffer = TypedConstantBuffer<Transformdata>;
         using LightBuffer = TypedConstantBuffer<DirectionalLight>;
-        using MaterialBuffer = TypedConstantBuffer<Meaterial>;
+        using MaterialBuffer = TypedConstantBuffer<Material>;
         using SettingBuffer = TypedConstantBuffer<SettingsData>;
 
         TransformBuffer mTransformBuffer;

@@ -1,0 +1,7 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(513,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (BobEngine.vcxproj.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  main.cpp
+D:\3DGraphicsProgrammFall2022\Tools\ModelImporter\main.cpp(34,35): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  ModelImporter.vcxproj -> D:\3DGraphicsProgrammFall2022\x64\Debug\ModelImporter.exe
+  D:\3DGraphicsProgrammFall2022\External\assimp-5.2.5\bin\assimp-vc143-mt.dll
+  D:\3DGraphicsProgrammFall2022\External\assimp-5.2.5\bin\assimp-vc143-mtd.dll
+          2 file(s) copied.
