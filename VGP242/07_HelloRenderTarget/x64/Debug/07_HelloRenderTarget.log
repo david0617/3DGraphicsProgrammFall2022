@@ -1,4 +1,4 @@
 ﻿  GameState.cpp
   WinMain.cpp
   Generating Code...
-LINK : fatal error LNK1104: cannot open file 'D:\3DGraphicsProgrammFall2022\x64\Debug\Graphics.lib'
+  07_HelloRenderTarget.vcxproj -> D:\3DGraphicsProgrammFall2022\x64\Debug\07_HelloRenderTarget.exe

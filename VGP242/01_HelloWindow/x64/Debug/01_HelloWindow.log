@@ -1,2 +1,2 @@
 ﻿  WinMain.cpp
-LINK : fatal error LNK1104: cannot open file 'D:\3DGraphicsProgrammFall2022\x64\Debug\Graphics.lib'
+  01_HelloWindow.vcxproj -> D:\3DGraphicsProgrammFall2022\x64\Debug\01_HelloWindow.exe

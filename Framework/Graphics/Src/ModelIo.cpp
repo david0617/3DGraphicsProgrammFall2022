@@ -93,3 +93,79 @@ void ModelIO::LoadModel(std::filesystem::path filePath, Model& model)
         }
     }
 }
+
+bool ModelIO::SaveMaterial(std::filesystem::path filePath, const Model& model)
+{
+    if (model.materialData.empty())
+    {
+        return false;
+    }
+    filePath.replace_extension("material");
+
+    FILE* file = nullptr;
+    fopen_s(&file, filePath.u8string().c_str(), "w");
+    if (file == nullptr)
+    {
+        return false;
+    }
+
+    uint32_t materialCount = static_cast<uint32_t>(model.materialData.size());
+    fprintf_s(file, "MaterialCount: %d\n", materialCount);
+    for (const Model::MaterialData& materiaData : model.materialData)
+    {
+        const Material& m = materiaData.material;
+        fprintf_s(file, "%f %f %f %f\n", m.ambient.r, m.ambient.g, m.ambient.b, m.ambient.a);
+        fprintf_s(file, "%f %f %f %f\n", m.diffuse.r, m.diffuse.g, m.diffuse.b, m.diffuse.a);
+        fprintf_s(file, "%f %f %f %f\n", m.emissive.r, m.emissive.g, m.emissive.b, m.emissive.a);
+        fprintf_s(file, "%f %f %f %f\n", m.specular.r, m.specular.g, m.specular.b, m.specular.a);
+        fprintf_s(file, "Power: %f\n", m.power);
+
+        fprintf_s(file, "%s\n", materiaData.diffuseMapName.empty() ? "<none>" : materiaData.diffuseMapName.c_str());
+        fprintf_s(file, "%s\n", materiaData.normalMapName.empty() ? "<none>" : materiaData.normalMapName.c_str());
+        fprintf_s(file, "%s\n", materiaData.bumpMapName.empty() ? "<none>" : materiaData.bumpMapName.c_str());
+        fprintf_s(file, "%s\n", materiaData.specularMapName.empty() ? "<none>" : materiaData.specularMapName.c_str());
+    }
+    fclose(file);
+}
+
+void ModelIO::LoadMaterial(std::filesystem::path filePath, Model& model)
+{
+    filePath.replace_extension("material");
+
+    FILE* file = nullptr;
+    fopen_s(&file, filePath.u8string().c_str(), "r");
+    if (file == nullptr)
+    {
+        return;
+    }
+
+    auto TryReadTextureName = [&](auto& fileName)
+    {
+        char buffer[MAX_PATH];
+        fscanf_s(file, "%s\n", &buffer, (uint32_t)sizeof(buffer));
+        if (strcmp(buffer, "<none>") != 0)
+        {
+            fileName = filePath.replace_filename(buffer).string();
+        }
+    };
+
+    uint32_t materialCount = 0;
+    fscanf_s(file, "MaterialCount: %d\n", &materialCount);
+    model.materialData.resize(materialCount);
+
+    for (Model::MaterialData& materiaData : model.materialData)
+    {
+        Material& m = materiaData.material;
+        fscanf_s(file, "%f %f %f %f\n", &m.ambient.r, &m.ambient.g, &m.ambient.b, &m.ambient.a);
+        fscanf_s(file, "%f %f %f %f\n", &m.diffuse.r, &m.diffuse.g, &m.diffuse.b, &m.diffuse.a);
+        fscanf_s(file, "%f %f %f %f\n", &m.emissive.r, &m.emissive.g, &m.emissive.b, &m.emissive.a);
+        fscanf_s(file, "%f %f %f %f\n", &m.specular.r, &m.specular.g, &m.specular.b, &m.specular.a);
+        fscanf_s(file, "Power: %f\n", &m.power);
+
+        TryReadTextureName(materiaData.diffuseMapName);
+        TryReadTextureName(materiaData.normalMapName);
+        TryReadTextureName(materiaData.bumpMapName);
+        TryReadTextureName(materiaData.specularMapName);
+    }
+    fclose(file);
+}

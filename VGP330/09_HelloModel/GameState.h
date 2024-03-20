@@ -20,5 +20,6 @@ private:
 	BobEngine::Graphics::StandardEffect mStandardEffect;
 
 	BobEngine::Graphics::Model mModel;
-	BobEngine::Graphics::RenderGroup mCharacter;
+	BobEngine::Graphics::RenderGroup mVanguard;
+	BobEngine::Graphics::RenderGroup mTY;
 };

@@ -9,7 +9,7 @@ int WINAPI WinMain(HINSTANCE instance, HINSTANCE, LPSTR, int)
 	mainApp.AddState<GameState>("GameState");
 
 	AppConfig config;
-	config.appName = L"08_Hello Model";
+	config.appName = L"09_Hello Model";
 	config.winWidth = 1280;
 	config.winHeight = 780;
 	mainApp.Run(config);

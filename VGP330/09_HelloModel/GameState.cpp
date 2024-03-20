@@ -19,12 +19,24 @@ void GameState::Initialize()
 	mStandardEffect.SetCamera(mCamera);
 	mStandardEffect.setDirectionalLight(mDirectionalLight);
 
-	ModelId modelId = ModelManager::Get()->LoadModel(L"../../Assets/Models/character/character1.model");
-	mCharacter = CreateRenderGroup(modelId);
+	ModelId modelId = ModelManager::Get()->LoadModel(L"../../Assets/Models/Vanguard/character.model");
+	mVanguard = CreateRenderGroup(modelId);
+	for (auto& renderObject : mVanguard)
+	{
+		renderObject.transform.position.x = -2.0f;
+	}
+
+	modelId = ModelManager::Get()->LoadModel(L"../../Assets/Models/TY/character.model");
+	mTY = CreateRenderGroup(modelId);
+	for (auto& renderObject : mTY)
+	{
+		renderObject.transform.position.x = 2.0f;
+	}
 }
 void GameState::Terminate()
 {
-	CleanupRenderGroup(mCharacter);
+	CleanupRenderGroup(mTY);
+	CleanupRenderGroup(mVanguard);
     mStandardEffect.Terminate();
 }
 void GameState::Update(float deltaTime)
@@ -34,7 +46,8 @@ void GameState::Update(float deltaTime)
 void GameState::Render()
 {
 	mStandardEffect.Begin();
-		DrawRenderGroup(mStandardEffect, mCharacter);
+		DrawRenderGroup(mStandardEffect, mVanguard);
+		DrawRenderGroup(mStandardEffect, mTY);
 	mStandardEffect.End();
 }
 void GameState::DebugUI()
