@@ -58,6 +58,20 @@ void PostProcessingEffect::Begin()
 
     PostProcessData data;
     data.mode = static_cast<int>(mMode);
+    switch (mMode)
+    {
+    case Mode::None: break;
+    case Mode::Monochrome: break;
+    case Mode::Invert: break;
+    case Mode::Mirror:
+    {
+        data.params0 = mMirrorScaleX;
+        data.params1 = mMirrorScaleY;
+    }
+    break;
+    default:
+        break;
+    }
 
     mPostProcessBuffer.Update(data);
     mPostProcessBuffer.BindPS(0);
@@ -96,5 +110,10 @@ void PostProcessingEffect::DebugUI()
         {
             mMode = static_cast<Mode>(currentMode);
         }
+    }
+    if (mMode == Mode::Mirror)
+    {
+        ImGui::DragFloat("MirrorScaleX", &mMirrorScaleX, 0.1f, -1.0f, 1.0f);
+        ImGui::DragFloat("MirrorScaleY", &mMirrorScaleY, 0.1f, -1.0f, 1.0f);
     }
 }

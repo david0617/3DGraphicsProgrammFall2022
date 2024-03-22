@@ -91,6 +91,7 @@ void GameState::DebugUI()
 		ImGui::ColorEdit4("Specular##Light", &mDirectionalLight.specular.r);
 	}
 	mStandardEffect.DebugUI();
+	mPostProcessingEffect.DebugUI();
 	ImGui::End();
 }
 

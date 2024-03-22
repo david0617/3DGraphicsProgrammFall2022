@@ -15,7 +15,7 @@ SamplerState textureSampler : register(s0);
 
 struct VS_INPUT
 {
-    float3 position : POSIRION;
+    float3 position : POSITION;
     float2 texCoord : TEXCOORD;
 };
 
@@ -40,6 +40,23 @@ float4 PS(VS_OUTPUT input) : SV_Target
     {
         finalColor = textureMap0.Sample(textureSampler, input.texCoord);
     }
-
+    else if (mode == 1) // monochrome
+    {
+        float4 color = textureMap0.Sample(textureSampler, input.texCoord);
+        finalColor = (color.r + color.g + color.b) / 3.0f;
+    }
+    else if (mode == 2) // invert
+    {
+        float4 color = textureMap0.Sample(textureSampler, input.texCoord);
+        finalColor = 1.0f - color;
+    }
+    else if (mode == 3) // mirror
+    {
+        float2 texCoord = input.texCoord;
+        texCoord.x *= params0;
+        texCoord.y *= params1;
+        finalColor = textureMap0.Sample(textureSampler, texCoord);
+    }
+    
     return finalColor;
-}
+} 

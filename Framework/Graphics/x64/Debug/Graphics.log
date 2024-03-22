@@ -1,30 +1,3 @@
-﻿  Precompiled.cpp
-  BlendState.cpp
-  Camera.cpp
-  ConstantBuffer.cpp
-  DebugUI.cpp
-  GraphicsSystem.cpp
-D:\3DGraphicsProgrammFall2022\Framework\Graphics\Src\GraphicsSystem.cpp(123,109): warning C4244: 'argument': conversion from 'float' to 'UINT8', possible loss of data
-  MeshBuffer.cpp
-  MeshBuilder.cpp
-D:\3DGraphicsProgrammFall2022\Framework\Graphics\Src\MeshBuilder.cpp(287,91): warning C4267: 'argument': conversion from 'size_t' to 'uint32_t', possible loss of data
-  ModelIo.cpp
-  ModelManager.cpp
-  PixelShader.cpp
-  PostProcessingEffect.cpp
-D:\3DGraphicsProgrammFall2022\Framework\Graphics\Src\PostProcessingEffect.cpp(95,12): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-  RenderObject.cpp
-D:\3DGraphicsProgrammFall2022\Framework\Graphics\Src\RenderObject.cpp(18,5): warning C4477: 'snprintf' : format string '%d' requires an argument of type 'int', but variadic argument 4 has type 'BobEngine::Graphics::ModelId'
-D:\3DGraphicsProgrammFall2022\Framework\Graphics\Src\RenderObject.cpp(18,5): message : consider using '%zd' in the format string
-  RenderTarget.cpp
-D:\3DGraphicsProgrammFall2022\Framework\Graphics\Src\RenderTarget.cpp(83,77): warning C4244: 'argument': conversion from 'float' to 'UINT8', possible loss of data
-  Sampler.cpp
-  SimpleDraw.cpp
-  SimpleEffect.cpp
-  StandardEffect.cpp
-  Texture.cpp
-  TextureManager.cpp
-  VertexShader.cpp
-  Generating Code...
-D:\3DGraphicsProgrammFall2022\Framework\Graphics\Src\ModelIo.cpp(129): warning C4715: 'BobEngine::Graphics::ModelIO::SaveMaterial': not all control paths return a value
+﻿  PostProcessingEffect.cpp
+D:\3DGraphicsProgrammFall2022\Framework\Graphics\Src\PostProcessingEffect.cpp(109,12): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   Graphics.vcxproj -> D:\3DGraphicsProgrammFall2022\x64\Debug\Graphics.lib
