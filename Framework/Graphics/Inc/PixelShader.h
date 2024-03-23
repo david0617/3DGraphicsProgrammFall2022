@@ -5,7 +5,7 @@ namespace BobEngine::Graphics
 	class PixelShader final
 	{
 	public:
-		void Initialize(const std::filesystem::path& filePath);
+		void Initialize(const std::filesystem::path& filePath, const char* entyPoint = "PS");
 		void Terminate();
 		void Bind();
 

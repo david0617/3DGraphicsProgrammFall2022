@@ -21,11 +21,18 @@ void GameState::Initialize()
 
 	mPostProcessingEffect.Initialize(L"../../Assets/Shaders/PostProcess.fx");
 	mPostProcessingEffect.SetTexture(&mRenderTarget);
+	mPostProcessingEffect.SetTexture(&mGaussianBlurEffect.GetResultTexture(), 1);
+
+	mGaussianBlurEffect.Initialize();
+	mGaussianBlurEffect.SetSourceTexture(mBlurRenderTarget);
+
+	//mCombineTexture.Initialize(L"../../Assets/Textures/earth_clouds.jpg");
 
 	GraphicsSystem* gs = GraphicsSystem::Get();
 	const uint32_t screenWidth = gs->GetBackBufferWidth();
 	const uint32_t screenHight = gs->GetBackBufferHeight();
 	mRenderTarget.Initialize(screenWidth, screenHight, RenderTarget::Format::RGBA_U8);
+	mBlurRenderTarget.Initialize(screenWidth, screenHight, RenderTarget::Format::RGBA_U8);
 
 
 	ModelId modelId = ModelManager::Get()->LoadModel(L"../../Assets/Models/Vanguard/character.model");
@@ -55,7 +62,10 @@ void GameState::Terminate()
 	mGround.Terminate();
 	CleanupRenderGroup(mTY);
 	CleanupRenderGroup(mVanguard);
+	mBlurRenderTarget.Terminate();
 	mRenderTarget.Terminate();
+	//mCombineTexture.Terminate();
+	mGaussianBlurEffect.Terminate();
 	mPostProcessingEffect.Terminate();
     mStandardEffect.Terminate();
 }
@@ -72,6 +82,17 @@ void GameState::Render()
 			mStandardEffect.Render(mGround);
 		mStandardEffect.End();
 	mRenderTarget.EndRender();
+
+	mBlurRenderTarget.BeginRender();
+	//mBlurRenderTarget.BeginRender({ 0.0f,0.0f,0.0f,0.0f });
+		mStandardEffect.Begin();
+			DrawRenderGroup(mStandardEffect, mVanguard);
+		mStandardEffect.End();
+	mBlurRenderTarget.EndRender();
+
+	mGaussianBlurEffect.Begin();
+		mGaussianBlurEffect.Render(mScreenQuad);
+	mGaussianBlurEffect.End();
 
 	mPostProcessingEffect.Begin();
 		mPostProcessingEffect.Render(mScreenQuad);
@@ -92,6 +113,7 @@ void GameState::DebugUI()
 	}
 	mStandardEffect.DebugUI();
 	mPostProcessingEffect.DebugUI();
+	mGaussianBlurEffect.DebugUI();
 	ImGui::End();
 }
 

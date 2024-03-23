@@ -19,10 +19,14 @@ private:
 	BobEngine::Graphics::DirectionalLight mDirectionalLight;
 	BobEngine::Graphics::StandardEffect mStandardEffect;
 	BobEngine::Graphics::PostProcessingEffect mPostProcessingEffect;
+	BobEngine::Graphics::GaussianBlurEffect mGaussianBlurEffect;
 
 	BobEngine::Graphics::RenderGroup mVanguard;
 	BobEngine::Graphics::RenderGroup mTY;
 	BobEngine::Graphics::RenderObject mGround;
 	BobEngine::Graphics::RenderObject mScreenQuad;
+	//BobEngine::Graphics::Texture mCombineTexture;
+
 	BobEngine::Graphics::RenderTarget mRenderTarget;
+	BobEngine::Graphics::RenderTarget mBlurRenderTarget;
 };

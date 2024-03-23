@@ -1,3 +1,6 @@
-﻿  PostProcessingEffect.cpp
-D:\3DGraphicsProgrammFall2022\Framework\Graphics\Src\PostProcessingEffect.cpp(109,12): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+﻿  GraphicsSystem.cpp
+D:\3DGraphicsProgrammFall2022\Framework\Graphics\Src\GraphicsSystem.cpp(123,109): warning C4244: 'argument': conversion from 'float' to 'UINT8', possible loss of data
+  RenderTarget.cpp
+D:\3DGraphicsProgrammFall2022\Framework\Graphics\Src\RenderTarget.cpp(83,77): warning C4244: 'argument': conversion from 'float' to 'UINT8', possible loss of data
+  Generating Code...
   Graphics.vcxproj -> D:\3DGraphicsProgrammFall2022\x64\Debug\Graphics.lib

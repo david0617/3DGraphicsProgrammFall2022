@@ -69,6 +69,31 @@ void PostProcessingEffect::Begin()
         data.params1 = mMirrorScaleY;
     }
     break;
+    case Mode::Blur:
+    {
+        GraphicsSystem* gs = GraphicsSystem::Get();
+        const float screenWidth = gs->GetBackBufferWidth();
+        const float screenHeight = gs->GetBackBufferHeight();
+        data.params0 = mBlurStrength / screenWidth;
+        data.params1 = mBlurStrength / screenHeight;
+        data.params2 = mBlurConstant;
+    }
+    break;
+    case Mode::Combine2: break;
+    case Mode::MotionBlur:
+    {
+        GraphicsSystem* gs = GraphicsSystem::Get();
+        const float screenWidth = gs->GetBackBufferWidth();
+        const float screenHeight = gs->GetBackBufferHeight();
+        data.params0 = mBlurStrength / screenWidth;
+        data.params1 = mBlurStrength / screenHeight;
+        data.params2 = mBlurConstant;
+    }
+    break;
+    case Mode::ChromaticAberration:
+    {
+        data.params0 = mAberrationValue;
+    }
     default:
         break;
     }
@@ -115,5 +140,13 @@ void PostProcessingEffect::DebugUI()
     {
         ImGui::DragFloat("MirrorScaleX", &mMirrorScaleX, 0.1f, -1.0f, 1.0f);
         ImGui::DragFloat("MirrorScaleY", &mMirrorScaleY, 0.1f, -1.0f, 1.0f);
+    }
+    if (mMode == Mode::Blur || mMode == Mode::MotionBlur)
+    {
+        ImGui::DragFloat("BlurStrength", &mBlurStrength, 1.0f, 0.0f, 10.0f);
+    }
+    if (mMode == Mode::ChromaticAberration)
+    {
+        ImGui::DragFloat("AberrationValue", &mAberrationValue, 0.001f, 0.001f, 1.0f);
     }
 }
