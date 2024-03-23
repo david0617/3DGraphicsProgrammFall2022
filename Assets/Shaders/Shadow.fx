@@ -7,7 +7,7 @@ cbuffer TransformBuffer : register(b0)
 
 struct VS_INPUT
 {
-    float3 position : POSITIONT;
+    float3 position : POSITION;
     float3 normal : NORMAL;
     float3 tangent : TANGENT;
     float2 texCoord : TEXCOORD;

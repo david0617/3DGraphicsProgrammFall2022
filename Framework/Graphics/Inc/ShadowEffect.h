@@ -28,7 +28,7 @@ namespace BobEngine::Graphics
         void SetFocus(const Math::Vector3& focusPosition);
         void SetSize(float size);
         const Camera& GetLightCamera() const;
-        const Texture& GEtDepthMap() const;
+        const Texture& GetDepthMap() const;
 
     private:
         void UpdateLightCamera();

@@ -9,7 +9,7 @@ using namespace BobEngine::Graphics;
 
 void ShadowEffect::Initialize()
 {
-    std::filesystem::path shadeFile = L"../../Assets/Shaders/Shadow/Shadow.fx";
+    std::filesystem::path shadeFile = L"../../Assets/Shaders/Shadow.fx";
     mVertexShader.Initialize<Vertex>(shadeFile);
     mPixelShader.Initialize(shadeFile);
 
@@ -20,7 +20,7 @@ void ShadowEffect::Initialize()
     mLightCamera.SetFarPlane(2000.0f);
 
     constexpr uint32_t depthMapResolution = 4096;
-    mDepthMapRenderTarget.Initialize(depthMapResolution, depthMapResolution, Texture::Format::RGBA_U8);
+    mDepthMapRenderTarget.Initialize(depthMapResolution, depthMapResolution, Texture::Format::RGBA_U32);
 }
 
 void ShadowEffect::Terminate()
@@ -33,12 +33,18 @@ void ShadowEffect::Terminate()
 
 void ShadowEffect::Begin()
 {
+    UpdateLightCamera();
 
+    mVertexShader.Bind();
+    mPixelShader.Bind();
+    mTransformBuffer.BindVS(0);
+
+    mDepthMapRenderTarget.BeginRender();
 }
 
 void ShadowEffect::End()
 {
-
+    mDepthMapRenderTarget.EndRender();
 }
 
 void ShadowEffect::Render(const RenderObject& renderObject)
@@ -90,7 +96,7 @@ const Camera& ShadowEffect::GetLightCamera() const
     return mLightCamera;
 }
 
-const Texture& ShadowEffect::GEtDepthMap() const
+const Texture& ShadowEffect::GetDepthMap() const
 {
     return mDepthMapRenderTarget;
 }

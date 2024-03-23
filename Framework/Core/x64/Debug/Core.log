@@ -1,6 +1,2 @@
-﻿  Precompiled.cpp
-  TimeUtil.cpp
-  Window.cpp
-  WindowMessageHandler.cpp
-  Generating Code...
+﻿  TimeUtil.cpp
   Core.vcxproj -> D:\3DGraphicsProgrammFall2022\x64\Debug\Core.lib

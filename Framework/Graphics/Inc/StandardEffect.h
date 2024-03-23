@@ -25,7 +25,9 @@ namespace BobEngine::Graphics
         void Render(const RenderObject& renderObject);
 
         void SetCamera(const Camera& camera);
+        void SetLightCamera(const Camera& camera);
         void setDirectionalLight(const DirectionalLight& directionalLight);
+        void SetShadowMap(const Texture& shadowMap);
 
         void DebugUI();
 
@@ -33,6 +35,7 @@ namespace BobEngine::Graphics
         struct Transformdata
         {
             Math::Matrix4 wvp;
+            Math::Matrix4 lwvp;
             Math::Matrix4 world;
             Math::Vector3 viewPosition;
             float padding = 0.0f;
@@ -44,8 +47,10 @@ namespace BobEngine::Graphics
             int useNormalMap = 1;
             int useSpecMap = 1;
             int useBumpMap = 1;
+            int useShadowMap = 1;
             float bumpWeight = 1.0f;
-            float padding[3];
+            float depthBias = 1.0f;
+            float padding[1];
         };
 
         using TransformBuffer = TypedConstantBuffer<Transformdata>;
@@ -63,6 +68,8 @@ namespace BobEngine::Graphics
 
         SettingsData mSettingsData;
         const Camera* mCamera = nullptr;
+        const Camera* mLightCamera = nullptr;
         const DirectionalLight* mDirectionalLight = nullptr;
+        const Texture* mShadowMap = nullptr;
     };
 }
