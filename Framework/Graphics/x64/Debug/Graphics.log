@@ -1,4 +1,14 @@
-﻿  ShadowEffect.cpp
-  StandardEffect.cpp
-  Generating Code...
+﻿  PostProcessingEffect.cpp
+D:\3DGraphicsProgrammFall2022\Framework\Graphics\Src\PostProcessingEffect.cpp(67,52): warning C4244: '=': conversion from 'uint32_t' to 'float', possible loss of data
+D:\3DGraphicsProgrammFall2022\Framework\Graphics\Src\PostProcessingEffect.cpp(68,50): warning C4244: '=': conversion from 'uint32_t' to 'float', possible loss of data
+D:\3DGraphicsProgrammFall2022\Framework\Graphics\Src\PostProcessingEffect.cpp(83,57): warning C4244: 'initializing': conversion from 'uint32_t' to 'float', possible loss of data
+D:\3DGraphicsProgrammFall2022\Framework\Graphics\Src\PostProcessingEffect.cpp(83,33): warning C4244: 'initializing': conversion from 'uint32_t' to 'const float', possible loss of data
+D:\3DGraphicsProgrammFall2022\Framework\Graphics\Src\PostProcessingEffect.cpp(84,59): warning C4244: 'initializing': conversion from 'uint32_t' to 'float', possible loss of data
+D:\3DGraphicsProgrammFall2022\Framework\Graphics\Src\PostProcessingEffect.cpp(84,34): warning C4244: 'initializing': conversion from 'uint32_t' to 'const float', possible loss of data
+D:\3DGraphicsProgrammFall2022\Framework\Graphics\Src\PostProcessingEffect.cpp(94,57): warning C4244: 'initializing': conversion from 'uint32_t' to 'float', possible loss of data
+D:\3DGraphicsProgrammFall2022\Framework\Graphics\Src\PostProcessingEffect.cpp(94,33): warning C4244: 'initializing': conversion from 'uint32_t' to 'const float', possible loss of data
+D:\3DGraphicsProgrammFall2022\Framework\Graphics\Src\PostProcessingEffect.cpp(95,59): warning C4244: 'initializing': conversion from 'uint32_t' to 'float', possible loss of data
+D:\3DGraphicsProgrammFall2022\Framework\Graphics\Src\PostProcessingEffect.cpp(95,34): warning C4244: 'initializing': conversion from 'uint32_t' to 'const float', possible loss of data
+D:\3DGraphicsProgrammFall2022\Framework\Graphics\Src\PostProcessingEffect.cpp(143,12): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+D:\3DGraphicsProgrammFall2022\Framework\Graphics\Src\PostProcessingEffect.cpp(163,70): warning C4305: 'argument': truncation from 'double' to 'float'
   Graphics.vcxproj -> D:\3DGraphicsProgrammFall2022\x64\Debug\Graphics.lib

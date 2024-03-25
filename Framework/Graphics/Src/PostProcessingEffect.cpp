@@ -20,7 +20,8 @@ namespace
         "Blur",
         "Combine2",
         "MotionBlur",
-        "ChromaticAberration"
+        "ChromaticAberration",
+        "LensDistortion"
     };
 }
 
@@ -57,6 +58,7 @@ void PostProcessingEffect::Begin()
     }
 
     PostProcessData data;
+
     data.mode = static_cast<int>(mMode);
     switch (mMode)
     {
@@ -94,6 +96,15 @@ void PostProcessingEffect::Begin()
     {
         data.params0 = mAberrationValue;
     }
+    break;
+    case Mode::LensDistortion:
+    {
+        GraphicsSystem* gs = GraphicsSystem::Get();
+        data.screenHeight = gs->GetBackBufferHeight();
+        data.screenWidth = gs->GetBackBufferWidth();
+        data.intensity = mIntensity;
+    }
+    break;
     default:
         break;
     }
@@ -148,5 +159,9 @@ void PostProcessingEffect::DebugUI()
     if (mMode == Mode::ChromaticAberration)
     {
         ImGui::DragFloat("AberrationValue", &mAberrationValue, 0.001f, 0.001f, 1.0f);
+    }
+    if (mMode == Mode::LensDistortion)
+    {
+        ImGui::DragFloat("intensity", &mIntensity, 0.01f, 0.01, 10.0f);
     }
 }

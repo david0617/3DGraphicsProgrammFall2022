@@ -22,7 +22,8 @@ namespace BobEngine::Graphics
             Blur,
             Combine2,
             MotionBlur,
-            ChromaticAberration
+            ChromaticAberration,
+            LensDistortion
         };
 
         void Initialize(const std::filesystem::path& filePath);
@@ -45,9 +46,13 @@ namespace BobEngine::Graphics
             float params0 = 0.0f;
             float params1 = 0.0f;
             float params2 = 0.0f;
+            float screenWidth;
+            float screenHeight;
+            float intensity;
+            float padding = 0.0f;
         };
-
         using PostProcessBuffer = TypedConstantBuffer<PostProcessData>;
+        using ColouBuffer = TypedConstantBuffer<PostProcessData>;
         PostProcessBuffer mPostProcessBuffer;
 
         VertexShader mVertexShader;
@@ -62,5 +67,6 @@ namespace BobEngine::Graphics
         float mBlurStrength = 5.0f;
         float mBlurConstant = 0.12f;
         float mAberrationValue = 0.005f;
+        float mIntensity = 1.0f;
     };
 }

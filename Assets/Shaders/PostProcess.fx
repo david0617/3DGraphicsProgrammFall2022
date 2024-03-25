@@ -4,6 +4,9 @@ cbuffer PostProcessBuffer : register(b0)
     float params0;
     float params1;
     float params2;
+    float screenWidth;
+    float screenHeight;
+    float intensity;
 }
 
 Texture2D textureMap0 : register(t0);
@@ -37,7 +40,7 @@ float4 PS(VS_OUTPUT input) : SV_Target
 {
     float4 finalColor = 0.0f;
     if (mode == 0) // none
-    {
+    {        
         finalColor = textureMap0.Sample(textureSampler, input.texCoord);
     }
     else if (mode == 1) // monochrome
@@ -104,6 +107,18 @@ float4 PS(VS_OUTPUT input) : SV_Target
         float4 blueChannel = textureMap0.Sample(textureSampler, input.texCoord + distortion.y * input.texCoord);
         finalColor = float4(redChannel.r, greenChannel.g, blueChannel.b, 1.0f);
     }
-    
+    else if (mode == 8)
+    {
+        float2 screenSize = { screenWidth, screenHeight };
+        float2 uv = input.texCoord;
+        
+        float d = length(uv);
+        float z = sqrt(intensity - d * d);
+        float r = atan2(d, z) / 3.14159;
+        float phi = atan2(uv.y, uv.x);
+        uv = float2(r * cos(phi) + .1, r * sin(phi) + .1);
+        
+        finalColor = textureMap0.Sample(textureSampler, uv);
+    }
     return finalColor;
 } 
