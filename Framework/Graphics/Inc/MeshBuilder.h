@@ -1,7 +1,7 @@
 #pragma once
 #include "MeshTypes.h"
 
-namespace BobEngine::Graphics
+namespace SpringEngine::Graphics
 {
 	class MeshBuilder
 	{
@@ -32,6 +32,6 @@ namespace BobEngine::Graphics
 		static MeshPX CreateSkySpherePX(uint32_t slices, uint32_t rings, float radius);
 
 		// Screen Quad
-		static MeshPX CreatScreenQuad();
+		static MeshPX CreateScreenQuad();
 	};
 }

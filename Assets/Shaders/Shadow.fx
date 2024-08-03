@@ -1,4 +1,4 @@
-// Description: Shadow effect to generates a shadow render targent
+// Description: Shadow effect to generates a shawod render target
 
 cbuffer TransformBuffer : register(b0)
 {

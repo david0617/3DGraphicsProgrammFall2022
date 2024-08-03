@@ -3,7 +3,7 @@
 #include "Common.h"
 #include "Colors.h"
 
-namespace BobEngine::Graphics
+namespace SpringEngine::Graphics
 {
 	class GraphicsSystem final
 	{

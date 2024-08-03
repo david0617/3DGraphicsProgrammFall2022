@@ -2,7 +2,7 @@
 
 #include "Common.h"
 
-namespace BobEngine::Graphics
+namespace SpringEngine::Graphics
 {
 	struct Transform
 	{
@@ -12,6 +12,7 @@ namespace BobEngine::Graphics
 
 		Math::Matrix4 GetMatrix4() const
 		{
+			//Math::Matrix4 mat = Math::Matrix4::MatrixRotationQuaternion(rotation);
 			return {
 				Math::Matrix4::Scaling(scale) *
 				Math::Matrix4::MatrixRotationQuaternion(rotation) *

@@ -1,122 +1,99 @@
-#include "GameState.h"
+#include"GameState.h"
 
-using namespace BobEngine;
-using namespace BobEngine::Graphics;
-using namespace BobEngine::Math;
-using namespace BobEngine::Input;
+using namespace SpringEngine;
+using namespace SpringEngine::Graphics;
+using namespace SpringEngine::Math;
+using namespace SpringEngine::Input;
 
 void GameState::Initialize()
 {
-	mCamera.SetPosition({ 0.0f, 1.0f, -4.0f });
-	mCamera.SetLookAt({ 0.0f, 0.0f, 0.0f });
+	mCamera.SetPosition({ 0.0f,1.0f,-4.0f });
+	mCamera.SetLookAt({ 0.0f,0.0f,0.0f });
 
-	mDirectionalLight.direction = Math::Normalize({ 1.0f, -1.0f, 1.0f });
-	mDirectionalLight.ambient = { 0.5f, 0.5f, 0.5f, 1.0f };
-	mDirectionalLight.diffuse = { 0.8f, 0.8f, 0.8f, 1.0f };
-	mDirectionalLight.specular = { 1.0f, 1.0f, 1.0f, 1.0f };
+	mDirectionalLight.direction = Math::Normalize({ 1.0f,-1.0f,1.0f });
+	mDirectionalLight.ambient = { 0.5f,0.5f,0.5f,1.0f };
+	mDirectionalLight.diffuse = { 0.8f,0.8f,0.8f,1.0f };
+	mDirectionalLight.specular = { 1.0f,1.0f,1.0f,1.0f };
 
 	mStandardEffect.Initialize(L"../../Assets/Shaders/Standard.fx");
 	mStandardEffect.SetCamera(mCamera);
-	mStandardEffect.setDirectionalLight(mDirectionalLight);
+	mStandardEffect.SetDirectionalLight(mDirectionalLight);
 
 	mPostProcessingEffect.Initialize(L"../../Assets/Shaders/PostProcess.fx");
 	mPostProcessingEffect.SetTexture(&mRenderTarget);
-	mPostProcessingEffect.SetTexture(&mGaussianBlurEffect.GetResultTexture(), 1);
-
-	mGaussianBlurEffect.Initialize();
-	mGaussianBlurEffect.SetSourceTexture(mBlurRenderTarget);
-
-	//mCombineTexture.Initialize(L"../../Assets/Textures/earth_clouds.jpg");
 
 	GraphicsSystem* gs = GraphicsSystem::Get();
 	const uint32_t screenWidth = gs->GetBackBufferWidth();
-	const uint32_t screenHight = gs->GetBackBufferHeight();
-	mRenderTarget.Initialize(screenWidth, screenHight, RenderTarget::Format::RGBA_U8);
-	mBlurRenderTarget.Initialize(screenWidth, screenHight, RenderTarget::Format::RGBA_U8);
+	const uint32_t screenHeight = gs->GetBackBufferHeight();
+	mRenderTarget.Initialize(screenWidth, screenHeight, RenderTarget::Format::RGBA_U8);
 
-
-	ModelId modelId = ModelManager::Get()->LoadModel(L"../../Assets/Models/Vanguard/character.model");
-	mVanguard = CreateRenderGroup(modelId);
-	for (auto& renderObject : mVanguard)
+	ModelId modelId = ModelManager::Get()->LoadModel(L"../../Assets/Models/Character_1/Character01.model");
+	mShortHair = CreateRenderGroup(modelId);
+	for (auto& RenderObject : mShortHair)
 	{
-		renderObject.transform.position.x = -2.0f;
+		RenderObject.transform.position.x = -1.0f;
 	}
 
-	modelId = ModelManager::Get()->LoadModel(L"../../Assets/Models/TY/character.model");
-	mTY = CreateRenderGroup(modelId);
-	for (auto& renderObject : mTY)
+	modelId = ModelManager::Get()->LoadModel(L"../../Assets/Models/Character_3/Character03.model");
+	mCuteman = CreateRenderGroup(modelId);
+	for (auto& RenderObject : mCuteman)
 	{
-		renderObject.transform.position.x = 2.0f;
+		RenderObject.transform.position.x = 1.0f;
 	}
 
 	Mesh groundMesh = MeshBuilder::CreateGroundPlane(20, 20, 1.0f);
 	mGround.meshBuffer.Initialize(groundMesh);
 	mGround.diffuseMapId = TextureManager::Get()->LoadTexture(L"misc/concrete.jpg");
 
-	MeshPX screenMesh = MeshBuilder::CreatScreenQuad();
+	MeshPX screenMesh = MeshBuilder::CrearsScreenQuad();
 	mScreenQuad.meshBuffer.Initialize(screenMesh);
 }
 void GameState::Terminate()
 {
 	mScreenQuad.Terminate();
 	mGround.Terminate();
-	CleanupRenderGroup(mTY);
-	CleanupRenderGroup(mVanguard);
-	mBlurRenderTarget.Terminate();
+	CleanupRenderGroup(mShortHair);
+	CleanupRenderGroup(mCuteman);
 	mRenderTarget.Terminate();
-	//mCombineTexture.Terminate();
-	mGaussianBlurEffect.Terminate();
 	mPostProcessingEffect.Terminate();
-    mStandardEffect.Terminate();
+	mStandardEffect.Terminate();
 }
-void GameState::Update(float deltaTime)
+void GameState::Update(const float deltaTime)
 {
-    UpdateCameraControl(deltaTime);
+	UpdateCameraControl(deltaTime);
 }
 void GameState::Render()
 {
 	mRenderTarget.BeginRender();
 		mStandardEffect.Begin();
-			DrawRenderGroup(mStandardEffect, mVanguard);
-			DrawRenderGroup(mStandardEffect, mTY);
+			DrawRenderGroup(mStandardEffect, mShortHair);
+			DrawRenderGroup(mStandardEffect, mCuteman);
 			mStandardEffect.Render(mGround);
 		mStandardEffect.End();
 	mRenderTarget.EndRender();
 
-	mBlurRenderTarget.BeginRender();
-	//mBlurRenderTarget.BeginRender({ 0.0f,0.0f,0.0f,0.0f });
-		mStandardEffect.Begin();
-			DrawRenderGroup(mStandardEffect, mVanguard);
-		mStandardEffect.End();
-	mBlurRenderTarget.EndRender();
-
-	mGaussianBlurEffect.Begin();
-		mGaussianBlurEffect.Render(mScreenQuad);
-	mGaussianBlurEffect.End();
-
 	mPostProcessingEffect.Begin();
-		mPostProcessingEffect.Render(mScreenQuad);
+	mPostProcessingEffect.Render(mScreenQuad);
 	mPostProcessingEffect.End();
 }
 void GameState::DebugUI()
 {
-	ImGui::Begin("Debug Control", nullptr, ImGuiWindowFlags_AlwaysAutoResize);
+	ImGui::Begin("Debug control", nullptr, ImGuiWindowFlags_AlwaysAutoResize);
 	if (ImGui::CollapsingHeader("Light", ImGuiTreeNodeFlags_DefaultOpen))
 	{
-		if (ImGui::DragFloat3("Direction", &mDirectionalLight.direction.x, 0.01f))
+		if (ImGui::DragFloat3("Direction",&mDirectionalLight.direction.x,0.1f))
 		{
 			mDirectionalLight.direction = Math::Normalize(mDirectionalLight.direction);
 		}
+
 		ImGui::ColorEdit4("Ambient##Light", &mDirectionalLight.ambient.r);
 		ImGui::ColorEdit4("Diffuse##Light", &mDirectionalLight.diffuse.r);
 		ImGui::ColorEdit4("Specular##Light", &mDirectionalLight.specular.r);
 	}
 	mStandardEffect.DebugUI();
-	mPostProcessingEffect.DebugUI();
-	mGaussianBlurEffect.DebugUI();
+	mPostProcessingEffect.Debug();
 	ImGui::End();
 }
-
 void GameState::UpdateCameraControl(float deltaTime)
 {
 	auto input = Input::InputSystem::Get();

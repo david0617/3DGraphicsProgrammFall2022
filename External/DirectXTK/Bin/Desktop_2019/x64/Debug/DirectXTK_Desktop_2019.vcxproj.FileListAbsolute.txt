@@ -1,2 +1,1 @@
-C:\Users\David yu\Downloads\SpringEngine\External\DirectXTK\Bin\Desktop_2019\x64\Debug\DirectXTK.lib
-D:\3DGraphicsProgrammFall2022\External\DirectXTK\Bin\Desktop_2019\x64\Debug\DirectXTK.lib
+E:\THECODE\temp\dayouxi\xiaoyouxi-main\SpringEngine\External\DirectXTK\Bin\Desktop_2019\x64\Debug\DirectXTK.lib

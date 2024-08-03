@@ -2,7 +2,7 @@
 #include "WindowMessageHandler.h"
 #include "DebugUtil.h"
 
-using namespace BobEngine::Core;
+using namespace SpringEngine::Core;
 
 void WindowMessageHandler::Hook(HWND window, Callback cb)
 {

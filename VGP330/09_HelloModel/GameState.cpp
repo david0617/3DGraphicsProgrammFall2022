@@ -1,64 +1,67 @@
-#include "GameState.h"
+#include"GameState.h"
 
-using namespace BobEngine;
-using namespace BobEngine::Graphics;
-using namespace BobEngine::Math;
-using namespace BobEngine::Input;
+using namespace SpringEngine;
+using namespace SpringEngine::Graphics;
+using namespace SpringEngine::Math;
+using namespace SpringEngine::Input;
 
 void GameState::Initialize()
 {
-	mCamera.SetPosition({ 0.0f, 1.0f, -4.0f });
-	mCamera.SetLookAt({ 0.0f, 0.0f, 0.0f });
+	mCamera.SetPosition({ 0.0f,1.0f,-4.0f });
+	mCamera.SetLookAt({ 0.0f,0.0f,0.0f });
 
-	mDirectionalLight.direction = Math::Normalize({ 1.0f, -1.0f, 1.0f });
-	mDirectionalLight.ambient = { 0.5f, 0.5f, 0.5f, 1.0f };
-	mDirectionalLight.diffuse = { 0.8f, 0.8f, 0.8f, 1.0f };
-	mDirectionalLight.specular = { 1.0f, 1.0f, 1.0f, 1.0f };
+	mDirectionalLight.direction = Math::Normalize({ 1.0f,-1.0f,1.0f });
+	mDirectionalLight.ambient = { 0.5f,0.5f,0.5f,1.0f };
+	mDirectionalLight.diffuse = { 0.8f,0.8f,0.8f,1.0f };
+	mDirectionalLight.specular = { 1.0f,1.0f,1.0f,1.0f };
 
+	
 	mStandardEffect.Initialize(L"../../Assets/Shaders/Standard.fx");
 	mStandardEffect.SetCamera(mCamera);
-	mStandardEffect.setDirectionalLight(mDirectionalLight);
+	mStandardEffect.SetDirectionalLight(mDirectionalLight);	
 
-	ModelId modelId = ModelManager::Get()->LoadModel(L"../../Assets/Models/Vanguard/character.model");
-	mVanguard = CreateRenderGroup(modelId);
-	for (auto& renderObject : mVanguard)
+	ModelId modelId = ModelManager::Get()->LoadModel(L"../../Assets/Models/Character_1/Character01.model");
+	mShortHair = CreateRenderGroup(modelId);
+	for (auto& RenderObject : mShortHair)
 	{
-		renderObject.transform.position.x = -2.0f;
+		RenderObject.transform.position.x = -1.0f;
 	}
 
-	modelId = ModelManager::Get()->LoadModel(L"../../Assets/Models/TY/character.model");
-	mTY = CreateRenderGroup(modelId);
-	for (auto& renderObject : mTY)
+	modelId = ModelManager::Get()->LoadModel(L"../../Assets/Models/Character_3/Character03.model");
+	mCuteman = CreateRenderGroup(modelId);
+	for (auto& RenderObject : mCuteman)
 	{
-		renderObject.transform.position.x = 2.0f;
+		RenderObject.transform.position.x = 1.0f;
 	}
 }
 void GameState::Terminate()
 {
-	CleanupRenderGroup(mTY);
-	CleanupRenderGroup(mVanguard);
-    mStandardEffect.Terminate();
+	CleanupRenderGroup(mShortHair);
+	CleanupRenderGroup(mCuteman);
+	mStandardEffect.Terminate();
 }
-void GameState::Update(float deltaTime)
+void GameState::Update(const float deltaTime)
 {
-    UpdateCameraControl(deltaTime);
+	UpdateCameraControl(deltaTime);
 }
 void GameState::Render()
 {
 	mStandardEffect.Begin();
-		DrawRenderGroup(mStandardEffect, mVanguard);
-		DrawRenderGroup(mStandardEffect, mTY);
+	DrawRenderGroup(mStandardEffect, mShortHair);
+	DrawRenderGroup(mStandardEffect, mCuteman);
 	mStandardEffect.End();
+
 }
 void GameState::DebugUI()
 {
-	ImGui::Begin("Debug Control", nullptr, ImGuiWindowFlags_AlwaysAutoResize);
+	ImGui::Begin("Debug control", nullptr, ImGuiWindowFlags_AlwaysAutoResize);
 	if (ImGui::CollapsingHeader("Light", ImGuiTreeNodeFlags_DefaultOpen))
 	{
-		if (ImGui::DragFloat3("Direction", &mDirectionalLight.direction.x, 0.01f))
+		if (ImGui::DragFloat3("Direction",&mDirectionalLight.direction.x,0.1f))
 		{
 			mDirectionalLight.direction = Math::Normalize(mDirectionalLight.direction);
 		}
+
 		ImGui::ColorEdit4("Ambient##Light", &mDirectionalLight.ambient.r);
 		ImGui::ColorEdit4("Diffuse##Light", &mDirectionalLight.diffuse.r);
 		ImGui::ColorEdit4("Specular##Light", &mDirectionalLight.specular.r);
@@ -66,7 +69,6 @@ void GameState::DebugUI()
 	mStandardEffect.DebugUI();
 	ImGui::End();
 }
-
 void GameState::UpdateCameraControl(float deltaTime)
 {
 	auto input = Input::InputSystem::Get();

@@ -1,9 +1,9 @@
 #include "GameState.h"
 
-using namespace BobEngine;
-using namespace BobEngine::Graphics;
-using namespace BobEngine::Math;
-using namespace BobEngine::Input;
+using namespace SpringEngine;
+using namespace SpringEngine::Graphics;
+using namespace SpringEngine::Math;
+using namespace SpringEngine::Input;
 
 void GameState::Initialize()
 {
@@ -16,11 +16,10 @@ void GameState::Initialize()
 
 	MeshPX sphere = MeshBuilder::CreateSpherePX(60, 60, 1.0f);
 	mRenderObject.meshBuffer.Initialize(sphere);
-	//mRenderObject.mDiffuseTexture.Initialize(L"../../Assets/Textures/misc/basketball.jpg");
-
+	mRenderObject.diffuseMapId = TextureManager::Get()->LoadTexture(L"../../Assets/Textures/misc/basketball.jpg");
 	MeshPX sky = MeshBuilder::CreateSkySpherePX(60, 60, 10.0f);
 	mRenderObject2.meshBuffer.Initialize(sky);
-	//mRenderObject2.mDiffuseTexture.Initialize(L"../../Assets/Textures/misc/concrete.jpg");
+	mRenderObject2.diffuseMapId = TextureManager::Get()->LoadTexture(L"../../Assets/Textures/misc/concrete.jpg");
 
 	mSimpleEffect.Initialize();
 	mSimpleEffect.SetCamera(mCamera);

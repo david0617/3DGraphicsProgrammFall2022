@@ -1,7 +1,0 @@
-﻿  main.cpp
-D:\3DGraphicsProgrammFall2022\Tools\ModelImporter\main.cpp(34,35): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-D:\3DGraphicsProgrammFall2022\Tools\ModelImporter\main.cpp(106,13): warning C4018: '<': signed/unsigned mismatch
-  ModelImporter.vcxproj -> D:\3DGraphicsProgrammFall2022\x64\Debug\ModelImporter.exe
-  D:\3DGraphicsProgrammFall2022\External\assimp-5.2.5\bin\assimp-vc143-mt.dll
-  D:\3DGraphicsProgrammFall2022\External\assimp-5.2.5\bin\assimp-vc143-mtd.dll
-          2 file(s) copied.

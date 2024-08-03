@@ -3,7 +3,7 @@
 #include "Colors.h"
 #include "Texture.h"
 
-namespace BobEngine::Graphics
+namespace SpringEngine::Graphics
 {
 	class RenderTarget final : public Texture
 	{

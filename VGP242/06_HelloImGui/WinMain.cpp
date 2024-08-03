@@ -1,8 +1,8 @@
-#include <BobEngine/Inc/BobEngine.h>
+#include <SpringEngine/Inc/SpringEngine.h>
 
 #include "GameState.h"
 
-using namespace BobEngine;
+using namespace SpringEngine;
 
 int WINAPI WinMain(HINSTANCE instance, HINSTANCE, LPSTR, int)
 {

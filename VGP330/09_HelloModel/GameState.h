@@ -1,25 +1,23 @@
 #pragma once
-#include <BobEngine/Inc/BobEngine.h>
+#include <SpringEngine/Inc/SpringEngine.h>
 
-class GameState : public BobEngine::AppState
+class GameState : public SpringEngine::AppState
 {
 public:
-	virtual ~GameState() = default;
-
-	void Initialize() override;
-	void Terminate() override;
-	void Update(float deltaTime) override;
+	~GameState() = default;
+	void Initialize()  override;
+	void Terminate()  override;
+	void Update(const float deltaTime) override;
 	void Render() override;
 	void DebugUI() override;
 
 private:
 	void UpdateCameraControl(float deltaTime);
 
-	BobEngine::Graphics::Camera mCamera;
-	BobEngine::Graphics::DirectionalLight mDirectionalLight;
-	BobEngine::Graphics::StandardEffect mStandardEffect;
+	SpringEngine::Graphics::Camera mCamera;
+	SpringEngine::Graphics::DirectionalLight mDirectionalLight;
+	SpringEngine::Graphics::StandardEffect mStandardEffect;
 
-	BobEngine::Graphics::Model mModel;
-	BobEngine::Graphics::RenderGroup mVanguard;
-	BobEngine::Graphics::RenderGroup mTY;
+	SpringEngine::Graphics::RenderGroup mCuteman;
+	SpringEngine::Graphics::RenderGroup mShortHair;
 };

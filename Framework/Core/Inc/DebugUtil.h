@@ -2,7 +2,7 @@
 
 #include "TimeUtil.h"
 
-using namespace BobEngine::Core::TimeUtil;
+using namespace SpringEngine::Core::TimeUtil;
 
 #if defined(_DEBUG)
 #define LOG(format, ...)\

@@ -1,8 +1,8 @@
 #include "Precompiled.h"
 #include "InputSystem.h"
 
-using namespace BobEngine;
-using namespace BobEngine::Input;
+using namespace SpringEngine;
+using namespace SpringEngine::Input;
 
 namespace
 {

@@ -1,6 +1,6 @@
 #pragma once
 
-namespace BobEngine::Graphics
+namespace SpringEngine::Graphics
 {
 	// This camera assumes YAxis as up direction. You
 	// cannot look straight up nor straight down.

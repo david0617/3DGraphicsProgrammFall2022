@@ -4,8 +4,8 @@
 #include "GraphicsSystem.h"
 #include <DirectXTK/Inc/WICTextureLoader.h>
 
-using namespace BobEngine;
-using namespace BobEngine::Graphics;
+using namespace SpringEngine;
+using namespace SpringEngine::Graphics;
 
 void Texture::UnbindPS(uint32_t slot)
 {

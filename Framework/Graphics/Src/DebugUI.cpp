@@ -7,9 +7,9 @@
 
 extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
-using namespace BobEngine;
-using namespace BobEngine::Graphics;
-using namespace BobEngine::Core;
+using namespace SpringEngine;
+using namespace SpringEngine::Graphics;
+using namespace SpringEngine::Core;
 
 namespace
 {

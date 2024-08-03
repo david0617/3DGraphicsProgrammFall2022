@@ -10,9 +10,9 @@
 
 #include <Math/Inc/SpMath.h>
 
-namespace BobEngine {
+namespace SpringEngine {
 
-	using Color = BobEngine::Math::Vector4;
+	using Color = SpringEngine::Math::Vector4;
 
 	namespace Colors {
 

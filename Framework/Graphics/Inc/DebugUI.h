@@ -1,7 +1,7 @@
 #pragma once
 
 
-namespace BobEngine::Graphics::DebugUI
+namespace SpringEngine::Graphics::DebugUI
 {
 	enum class Theme
 	{

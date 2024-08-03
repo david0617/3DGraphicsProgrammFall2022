@@ -1,6 +1,6 @@
 #pragma once
 
-namespace BobEngine::Graphics
+namespace SpringEngine::Graphics
 {
 	class MeshBuffer final
 	{

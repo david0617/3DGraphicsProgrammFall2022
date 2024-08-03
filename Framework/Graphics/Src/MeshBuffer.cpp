@@ -2,8 +2,8 @@
 #include "MeshBuffer.h"
 #include "GraphicsSystem.h"
 
-using namespace BobEngine;
-using namespace BobEngine::Graphics;
+using namespace SpringEngine;
+using namespace SpringEngine::Graphics;
 
 void MeshBuffer::Initialize(const void* vertices, uint32_t vertexSize, uint32_t vertexCount)
 {

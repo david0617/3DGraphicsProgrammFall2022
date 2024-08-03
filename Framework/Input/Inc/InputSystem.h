@@ -2,7 +2,7 @@
 
 #include "InputTypes.h"
 
-namespace BobEngine::Input
+namespace SpringEngine::Input
 {
 	class InputSystem final
 	{

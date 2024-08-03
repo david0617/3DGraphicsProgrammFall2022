@@ -1,7 +1,7 @@
 #pragma once
 
 
-namespace BobEngine::Graphics
+namespace SpringEngine::Graphics
 {
 	class BlendState final
 	{

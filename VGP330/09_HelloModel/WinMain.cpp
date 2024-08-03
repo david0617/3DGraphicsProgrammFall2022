@@ -1,15 +1,13 @@
-#include <BobEngine/Inc/BobEngine.h>
+#include <SpringEngine/Inc/SpringEngine.h>
 #include "GameState.h"
 
-using namespace BobEngine;
-
-int WINAPI WinMain(HINSTANCE instance, HINSTANCE, LPSTR, int)
+int	WINAPI WinMain(HINSTANCE instance, HINSTANCE, LPSTR, int)
 {
-	App& mainApp = BobEngine::MainApp();
+	SpringEngine::App& mainApp = SpringEngine::MainApp();
 	mainApp.AddState<GameState>("GameState");
 
-	AppConfig config;
-	config.appName = L"09_Hello Model";
+	SpringEngine::AppConfig config;
+	config.appName = L"Hello Model";
 	config.winWidth = 1280;
 	config.winHeight = 780;
 	mainApp.Run(config);

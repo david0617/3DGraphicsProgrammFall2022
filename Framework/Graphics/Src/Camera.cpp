@@ -3,8 +3,8 @@
 
 #include "GraphicsSystem.h"
 
-using namespace BobEngine;
-using namespace BobEngine::Graphics;
+using namespace SpringEngine;
+using namespace SpringEngine::Graphics;
 
 void Camera::SetMode(ProjectionMode mode)
 {

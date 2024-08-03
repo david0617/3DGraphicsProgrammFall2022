@@ -1,6 +1,6 @@
 #pragma once
 
-namespace BobEngine::Core
+namespace SpringEngine::Core
 {
 	class Window
 	{

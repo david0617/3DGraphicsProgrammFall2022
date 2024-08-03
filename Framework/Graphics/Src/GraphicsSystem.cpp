@@ -1,8 +1,8 @@
 #include "Precompiled.h"
 #include "GraphicsSystem.h"
 
-using namespace BobEngine;
-using namespace BobEngine::Graphics;
+using namespace SpringEngine;
+using namespace SpringEngine::Graphics;
 
 namespace
 {
@@ -141,7 +141,6 @@ void GraphicsSystem::Resize(uint32_t width, uint32_t height)
 
 	SafeRelease(mRenderTargetView);
 	SafeRelease(mDepthStencilView);
-	SafeRelease(mDepthStencilBuffer);
 
 	HRESULT hr;
 	if (width != GetBackBufferWidth() || height != GetBackBufferHeight())

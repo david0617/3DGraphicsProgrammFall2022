@@ -5,7 +5,7 @@
 #include "Sampler.h"
 #include "VertexShader.h"
 
-namespace BobEngine::Graphics
+namespace SpringEngine::Graphics
 {
 	class Camera;
 	class RenderObject;

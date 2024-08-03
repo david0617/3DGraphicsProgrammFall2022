@@ -1,10 +1,10 @@
 #pragma once
-#include <BobEngine/Inc/BobEngine.h>
+#include <SpringEngine/Inc/SpringEngine.h>
 
-using namespace BobEngine;
-using namespace BobEngine::Graphics;
+using namespace SpringEngine;
+using namespace SpringEngine::Graphics;
 
-class GameState : public BobEngine::AppState
+class GameState : public SpringEngine::AppState
 {
 public:
 	enum class ShapeType

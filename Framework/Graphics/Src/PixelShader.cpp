@@ -2,10 +2,10 @@
 #include "PixelShader.h"
 #include "GraphicsSystem.h"
 
-using namespace BobEngine;
-using namespace BobEngine::Graphics;
+using namespace SpringEngine;
+using namespace SpringEngine::Graphics;
 
-void PixelShader::Initialize(const std::filesystem::path& filePath, const char* entyPoint)
+void PixelShader::Initialize(const std::filesystem::path& filePath)
 {
 	auto device = GraphicsSystem::Get()->GetDevice();
 
@@ -17,7 +17,7 @@ void PixelShader::Initialize(const std::filesystem::path& filePath, const char* 
 		filePath.c_str(),
 		nullptr,
 		D3D_COMPILE_STANDARD_FILE_INCLUDE,
-		entyPoint, "ps_5_0",
+		"PS", "ps_5_0",
 		shaderFlags, 0,
 		&shaderBlob,
 		&errorBlob

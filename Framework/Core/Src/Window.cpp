@@ -1,7 +1,7 @@
 #include "Precompiled.h"
 #include "Window.h"
 
-using namespace BobEngine::Core;
+using namespace SpringEngine::Core;
 
 LRESULT CALLBACK WindowMessageHandler(HWND handle, UINT message, WPARAM wParam, LPARAM lParam)
 {

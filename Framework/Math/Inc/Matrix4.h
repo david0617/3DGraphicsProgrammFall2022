@@ -1,6 +1,6 @@
 #pragma once
 
-namespace BobEngine::Math
+namespace SpringEngine::Math
 {
 	struct Matrix4
 	{

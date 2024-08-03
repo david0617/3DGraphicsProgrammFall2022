@@ -6,8 +6,8 @@
 #include "RenderObject.h"
 #include "VertexTypes.h"
 
-using namespace BobEngine;
-using namespace BobEngine::Graphics;
+using namespace SpringEngine;
+using namespace SpringEngine::Graphics;
 
 void SimpleEffect::Initialize()
 {

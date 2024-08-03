@@ -2,7 +2,7 @@
 
 #include "VertexTypes.h"
 
-namespace BobEngine::Graphics
+namespace SpringEngine::Graphics
 {
 	template<class VertexT>
 	struct MeshBase

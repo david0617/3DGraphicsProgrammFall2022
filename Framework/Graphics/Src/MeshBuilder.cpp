@@ -1,8 +1,8 @@
 #include "Precompiled.h"
 #include "MeshBuilder.h"
 
-using namespace BobEngine;
-using namespace BobEngine::Graphics;
+using namespace SpringEngine;
+using namespace SpringEngine::Graphics;
 
 namespace
 {
@@ -221,8 +221,6 @@ Mesh MeshBuilder::CreateGroundPlane(uint32_t numRows, uint32_t numCols, float sp
 {
 	Mesh mesh;
 
-	int index = rand() % 100;
-
 	const float hpw = static_cast<float>(numCols) * spacing * 0.5f;
 	const float hph = static_cast<float>(numRows) * spacing * 0.5f;
 	const float uInc = 1.0f / static_cast<float>(numCols);
@@ -239,13 +237,12 @@ Mesh MeshBuilder::CreateGroundPlane(uint32_t numRows, uint32_t numCols, float sp
 		{
 			mesh.vertices.push_back({
 				{x, 0.0f, z},
-				{0.0f, 1.0f, 0.0f},
-				{0.0f, 0.0f, 1.0f},
-				{u, v}});
+				{0.0f,1.0f,0.0f},
+				{0.0f,0.0f,1.0f},
+				{u,v}});
 			x += spacing;
 			u += uInc;
 		}
-
 		x = -hpw;
 		z += spacing;
 		u = 0.0f;
@@ -354,49 +351,6 @@ MeshPX MeshBuilder::CreateSpherePX(uint32_t slices, uint32_t rings, float radius
 	return mesh;
 }
 
-Mesh MeshBuilder::CreateSphere(uint32_t slices, uint32_t rings, float radius)
-{
-	Mesh mesh;
-
-	float vertRotation = (Math::Constants::Pi / static_cast<float>(rings - 1));
-	float horzRotation = (Math::Constants::TwoPi / static_cast<float>(slices));
-	float uStep = 1.0f / static_cast<float>(slices);
-	float vStep = 1.0f / static_cast<float>(rings);
-
-	for (uint32_t r = 0; r <= rings; ++r)
-	{
-		float rPos = static_cast<float>(r);
-		float phi = rPos * vertRotation;
-		for (uint32_t s = 0; s <= slices; ++s)
-		{
-			float sPos = static_cast<float>(s);
-			float rotation = sPos * horzRotation;
-
-			float u = 1.0f - (uStep * sPos);
-			float v = vStep * rPos;
-			
-			float x = radius * sin(rotation) * sin(phi);
-			float y = radius * cos(phi);
-			float z = radius * cos(rotation) * sin(phi);
-
-			Math::Vector3 postion = { x, y, z };
-			Math::Vector3 normal = Math::Normalize(postion);
-			Math::Vector3 tangent = Math::Normalize({ -z, 0.0f, x });
-			Math::Vector2 uvCoord = { u, v };
-
-			mesh.vertices.push_back({
-					postion,
-					normal,
-					tangent,
-					uvCoord });
-		}
-	}
-
-	CreatePlaneIndices(mesh.indices, rings, slices);
-
-	return mesh;
-}
-
 MeshPX MeshBuilder::CreateSkySpherePX(uint32_t slices, uint32_t rings, float radius)
 {
 	MeshPX mesh;
@@ -429,14 +383,56 @@ MeshPX MeshBuilder::CreateSkySpherePX(uint32_t slices, uint32_t rings, float rad
 
 	return mesh;
 }
+Mesh MeshBuilder::CreateSphere(uint32_t slices, uint32_t rings, float radius)
+{
+	Mesh mesh;
 
-MeshPX MeshBuilder::CreatScreenQuad()
+	float vertRotation = (Math::Constants::Pi / static_cast<float>(rings - 1));
+	float horzRotation = (Math::Constants::TwoPi / static_cast<float>(slices));
+	float uStep = 1.0f / static_cast<float>(slices);
+	float vStep = 1.0f / static_cast<float>(rings);
+
+	for (uint32_t r = 0; r <= rings; ++r)
+	{
+		float rPos = static_cast<float>(r);
+		float phi = rPos * vertRotation;
+		for (uint32_t s = 0; s <= slices; ++s)
+		{
+			float sPos = static_cast<float>(s);
+			float rotation = sPos * horzRotation;
+
+			float u = 1.0f - (uStep * sPos);
+			float v = vStep * rPos;
+
+			float x = radius * sin(rotation) * sin(phi);
+			float y = radius * cos(phi);
+			float z = radius * cos(rotation) * sin(phi);
+			Math::Vector3 position = {x,y,z};
+			Math::Vector3 normal = Math::Normalize(position);
+			Math::Vector3 tangent = Math::Normalize({-z,0.0f,x});
+			Math::Vector2 uvCoord = { u,v };
+
+			mesh.vertices.push_back({ 
+				position,
+				normal,
+				tangent,
+				uvCoord
+				});
+		}
+	}
+
+	CreatePlaneIndices(mesh.indices, rings, slices);
+
+	return mesh;
+}
+
+MeshPX MeshBuilder::CreateScreenQuad()
 {
 	MeshPX mesh;
-	mesh.vertices.push_back({ {-1.0f, -1.0f, 0.0f}, {0.0f, 1.0f} });
-	mesh.vertices.push_back({ {-1.0f, 1.0f, 0.0f}, {0.0f, 0.0f} });
-	mesh.vertices.push_back({ {1.0f, 1.0f, 0.0f}, {1.0f, 0.0f} });
-	mesh.vertices.push_back({ {1.0f, -1.0f, 0.0f}, {1.0f, 1.0f} });
+	mesh.vertices.push_back({ { -1.0f, -1.0f, 0.0f }, { 0.0f, 1.0f } });
+	mesh.vertices.push_back({ { -1.0f,  1.0f, 0.0f }, { 0.0f, 0.0f } });
+	mesh.vertices.push_back({ {  1.0f,  1.0f, 0.0f }, { 1.0f, 0.0f } });
+	mesh.vertices.push_back({ {  1.0f, -1.0f, 0.0f }, { 1.0f, 1.0f } });
 	mesh.indices = { 0, 1, 2, 0, 2, 3 };
 
 	return mesh;

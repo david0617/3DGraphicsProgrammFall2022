@@ -1,61 +1,72 @@
 #include "Precompiled.h"
 #include "RenderObject.h"
+#include "Model.h"
+#include "Animator.h"
 
-using namespace BobEngine;
-using namespace BobEngine::Graphics;
+using namespace SpringEngine;
+using namespace SpringEngine::Graphics;
 
-void RenderObject::Terminate()
+void Graphics::RenderObject::Terminate()
 {
-    meshBuffer.Terminate();
-    diffuseMapId = 0;
-    normalMapId = 0;
-    specMapId = 0;
-    bumpMapId = 0;
+	meshBuffer.Terminate();
+	diffuseMapId = 0;
+	normalMapId = 0;
+	specMapId = 0;
+	bumpMapId = 0;
 }
-RenderGroup BobEngine::Graphics::CreateRenderGroup(ModelId id)
+RenderGroup Graphics::CreateRenderGroup(ModelId id, const Animator* animator)
 {
-    const Model* model = ModelManager::Get()->GetModel(id);
-    ASSERT(model != nullptr, "RenderGroup: ModelID %d is not loaded", id);
-    RenderGroup renderGroup = CreateRenderGroup(*model);
-    for (RenderObject& renderObject : renderGroup)
-    {
-        renderObject.modelId = id;
-    }
-    return renderGroup;
+	const Model* model = ModelManager::Get()->GetModel(id);
+	ASSERT(model != nullptr, "RenderGroup: ModelID %d is not loaded", id);
+	RenderGroup renderGroup = CreateRenderGroup(*model,animator);
+	for (RenderObject& renderObject : renderGroup)
+	{
+		renderObject.modelId = id;
+	}
+	return renderGroup;
 }
-RenderGroup Graphics::CreateRenderGroup(const Model& model)
+RenderGroup Graphics::CreateRenderGroup(const Model& model, const Animator* animator)
 {
-    auto TryLoadTexture = [](const auto& textureName) -> TextureId
-    {
-        if (textureName.empty())
-        {
-            return 0;
-        }
-        return TextureManager::Get()->LoadTexture(textureName, false);
-    };
-
-    RenderGroup renderGroup;
-    renderGroup.resize(model.meshData.size());
-    for (const Model::MeshData& meshData : model.meshData)
-    {
-        RenderObject& renderObject = renderGroup.emplace_back();
-        renderObject.meshBuffer.Initialize(meshData.mesh);
-        if (meshData.materialIndex < model.materialData.size())
-        {
-            const Model::MaterialData& materialData = model.materialData[meshData.materialIndex];
-            renderObject.material = materialData.material;
-            renderObject.diffuseMapId = TryLoadTexture(materialData.diffuseMapName);
-            renderObject.normalMapId = TryLoadTexture(materialData.normalMapName);
-            renderObject.bumpMapId = TryLoadTexture(materialData.bumpMapName);
-            renderObject.specMapId = TryLoadTexture(materialData.specularMapName);
-        }
-    }
-    return renderGroup;
+	auto TryLoadTexture = [](const auto& textureName)->TextureId
+	{
+		if (textureName.empty())
+		{
+			return 0;
+		}
+		return TextureManager::Get()->LoadTexture(textureName, false);
+	};
+	RenderGroup renderGroup;
+	for (const Model::MeshData& meshData : model.meshData)
+	{
+		RenderObject& renderObject = renderGroup.emplace_back();
+		renderObject.meshBuffer.Initialize(meshData.mesh);
+		if (meshData.materialIndex< model.materialData.size())
+		{
+			const Model::MaterialData& materialData = model.materialData[meshData.materialIndex];
+			renderObject.material = materialData.material;
+			renderObject.diffuseMapId = TryLoadTexture(materialData.diffuseMapName);
+			renderObject.normalMapId = TryLoadTexture(materialData.normalMapName);
+			renderObject.bumpMapId = TryLoadTexture(materialData.bumpMapName);
+			renderObject.specMapId = TryLoadTexture(materialData.specularMapName);
+		}
+		renderObject.skeleton = model.skeleton.get();
+		renderObject.animator = animator;
+	}
+	return renderGroup;
 }
 void Graphics::CleanupRenderGroup(RenderGroup& renderGroup)
 {
-    for (RenderObject& renderObject : renderGroup)
-    {
-        renderObject.Terminate();
-    }
+	for (RenderObject& renderObject : renderGroup)
+	{
+		renderObject.Terminate();
+	}
 }
+
+void Graphics::SetRenderGroupPosition(RenderGroup& renderGroup, const Math::Vector3& position)
+{
+	for (RenderObject& renderObject : renderGroup)
+	{
+		renderObject.transform.position = position;
+	}
+}
+

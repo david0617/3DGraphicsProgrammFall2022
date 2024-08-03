@@ -2,12 +2,12 @@
 
 #include "Camera.h"
 #include "ConstantBuffer.h"
-#include "LightType.h"
+#include "LightTypes.h"
 #include "PixelShader.h"
 #include "VertexShader.h"
 #include "RenderTarget.h"
 
-namespace BobEngine::Graphics
+namespace SpringEngine::Graphics
 {
     class RenderObject;
 
@@ -27,6 +27,7 @@ namespace BobEngine::Graphics
         void SetDirectionalLight(const DirectionalLight& directionalLight);
         void SetFocus(const Math::Vector3& focusPosition);
         void SetSize(float size);
+
         const Camera& GetLightCamera() const;
         const Texture& GetDepthMap() const;
 
@@ -51,5 +52,7 @@ namespace BobEngine::Graphics
 
         Math::Vector3 mFocusPosition = Math::Vector3::Zero;
         float mSize = 100.0f;
+
+
     };
 }

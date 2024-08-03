@@ -1,6 +1,6 @@
 #pragma once
 
-namespace BobEngine::Graphics
+namespace SpringEngine::Graphics
 {
 	class ConstantBuffer
 	{
@@ -26,7 +26,7 @@ namespace BobEngine::Graphics
 	public:
 		void Initialize()
 		{
-			static_assert(sizeof(DataType) % 16 == 0, "Data type must be 16 byte aligne");
+			static_assert(sizeof(DataType) % 16 == 0, "Data type must be 16 byte.....");
 			ConstantBuffer::Initialize(sizeof(DataType));
 		}
 		void Update(const DataType& data) const

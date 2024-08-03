@@ -1,6 +1,6 @@
 #pragma once
 
-namespace BobEngine::Input
+namespace SpringEngine::Input
 {
 	enum class KeyCode : uint32_t
 	{

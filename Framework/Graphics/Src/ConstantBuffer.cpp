@@ -2,8 +2,8 @@
 #include "ConstantBuffer.h"
 #include "GraphicsSystem.h"
 
-using namespace BobEngine;
-using namespace BobEngine::Graphics;
+using namespace SpringEngine;
+using namespace SpringEngine::Graphics;
 
 ConstantBuffer::~ConstantBuffer()
 {

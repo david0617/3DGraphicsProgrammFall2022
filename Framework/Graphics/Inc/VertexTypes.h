@@ -3,7 +3,7 @@
 #include "Common.h"
 #include "Colors.h"
 
-namespace BobEngine::Graphics
+namespace SpringEngine::Graphics
 {
 	// Vertex element flags
 	constexpr uint32_t VE_Position		= 0x1 << 0;

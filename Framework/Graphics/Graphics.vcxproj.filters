@@ -78,19 +78,16 @@
     <ClInclude Include="Inc\StandardEffect.h">
       <Filter>Inc</Filter>
     </ClInclude>
+    <ClInclude Include="Inc\DirectionalLight.h">
+      <Filter>Inc</Filter>
+    </ClInclude>
     <ClInclude Include="Inc\TextureManager.h">
       <Filter>Inc</Filter>
     </ClInclude>
-    <ClInclude Include="Inc\LightType.h">
+    <ClInclude Include="Inc\LightTypes.h">
       <Filter>Inc</Filter>
     </ClInclude>
     <ClInclude Include="Inc\Material.h">
-      <Filter>Inc</Filter>
-    </ClInclude>
-    <ClInclude Include="Inc\Model.h">
-      <Filter>Inc</Filter>
-    </ClInclude>
-    <ClInclude Include="Inc\ModelIo.h">
       <Filter>Inc</Filter>
     </ClInclude>
     <ClInclude Include="Inc\ModelManager.h">
@@ -99,10 +96,49 @@
     <ClInclude Include="Inc\PostProcessingEffect.h">
       <Filter>Inc</Filter>
     </ClInclude>
-    <ClInclude Include="Inc\GaussianBlurEffect.h">
+    <ClInclude Include="Inc\ShadowEffect.h">
       <Filter>Inc</Filter>
     </ClInclude>
-    <ClInclude Include="Inc\ShadowEffect.h">
+    <ClInclude Include="Inc\Terrain.h">
+      <Filter>Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\TerrainEffect.h">
+      <Filter>Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\BillboardEffect.h">
+      <Filter>Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\KeyFrame.h">
+      <Filter>Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\Animation.h">
+      <Filter>Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\AnimationBuilder.h">
+      <Filter>Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\Bone.h">
+      <Filter>Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\Skeleton.h">
+      <Filter>Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\Model.h">
+      <Filter>Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\ModeliO.h">
+      <Filter>Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\AnimationUtil.h">
+      <Filter>Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\AnimationClip.h">
+      <Filter>Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\Animator.h">
+      <Filter>Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\ParticleSyetemEffect.h">
       <Filter>Inc</Filter>
     </ClInclude>
   </ItemGroup>
@@ -155,10 +191,8 @@
     <ClCompile Include="Src\StandardEffect.cpp">
       <Filter>Src</Filter>
     </ClCompile>
-    <ClCompile Include="Src\TextureManager.cpp">
-      <Filter>Src</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\ModelIo.cpp">
+    <ClCompile Include="Src\TextureManager.cpp" />
+    <ClCompile Include="Src\ModelIO.cpp">
       <Filter>Src</Filter>
     </ClCompile>
     <ClCompile Include="Src\RenderObject.cpp">
@@ -170,10 +204,31 @@
     <ClCompile Include="Src\PostProcessingEffect.cpp">
       <Filter>Src</Filter>
     </ClCompile>
-    <ClCompile Include="Src\GaussianBlurEffect.cpp">
+    <ClCompile Include="Src\ShadowEffect.cpp">
       <Filter>Src</Filter>
     </ClCompile>
-    <ClCompile Include="Src\ShadowEffect.cpp">
+    <ClCompile Include="Src\Terrain.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\TerrainEffect.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\BillboardEffect.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Animation.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\AnimationBuilder.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\AnimationUtil.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Animator.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\ParticleSyetemEffect.cpp">
       <Filter>Src</Filter>
     </ClCompile>
   </ItemGroup>

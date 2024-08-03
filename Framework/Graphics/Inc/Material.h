@@ -1,10 +1,8 @@
 #pragma once
-
 #include "Colors.h"
-
-namespace BobEngine::Graphics
+namespace SpringEngine::Graphics
 {
-	struct  Material
+	struct Material
 	{
 		Color ambient = Colors::White;
 		Color diffuse = Colors::White;
