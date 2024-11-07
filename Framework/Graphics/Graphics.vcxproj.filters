@@ -141,6 +141,15 @@
     <ClInclude Include="Inc\ParticleSyetemEffect.h">
       <Filter>Inc</Filter>
     </ClInclude>
+    <ClInclude Include="Inc\UISprite.h">
+      <Filter>Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\UIsPriteRenderer.h">
+      <Filter>Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\UIFont.h">
+      <Filter>Inc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\Precompiled.cpp">
@@ -229,6 +238,15 @@
       <Filter>Src</Filter>
     </ClCompile>
     <ClCompile Include="Src\ParticleSyetemEffect.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\UISprite.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\UIsPriteRenderer.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\UIFont.cpp">
       <Filter>Src</Filter>
     </ClCompile>
   </ItemGroup>

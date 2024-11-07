@@ -59,6 +59,9 @@ void RenderTarget::Initialize(uint32_t width, uint32_t height, Format format)
 	mViewport.Height = static_cast<float>(height);
 	mViewport.MinDepth = 0.0f;
 	mViewport.MaxDepth = 1.0f;
+
+	mWidth = width;
+	mHeight = height;
 }
 
 void RenderTarget::Terminate()

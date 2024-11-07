@@ -20,8 +20,6 @@ namespace SpringEngine::Graphics
 		Math::Matrix4 GetToParentTransform(const Bone* bone) const;
 
 		void AddKeyFrame(int frame, std::function<void()> callback);
-		void AddGlobalKeyFrame(int frame, std::function<void()> callback);
-
 	private:
 		ModelId mModelId = 0;
 		int mClipIndex = -1;
@@ -31,6 +29,5 @@ namespace SpringEngine::Graphics
 		float mSpeed = 1.0f;
 		int mFrameCount = 0;
 		std::unordered_map<int, std::function<void()>> mCallbacks;
-		std::unordered_map<int, std::function<void()>> mGlobalCallbacks;
 	};
 }

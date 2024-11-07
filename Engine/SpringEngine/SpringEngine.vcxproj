@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -24,10 +24,14 @@
     <ProjectGuid>{493223d0-2810-4419-92fa-85d01358172a}</ProjectGuid>
     <RootNamespace>SpringEngine</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <SccProjectName>SAK</SccProjectName>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccProvider>SAK</SccProvider>
+    <SccProjectName>
+    </SccProjectName>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccProvider>
+    </SccProvider>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -141,29 +145,83 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Inc\AnimatorComponent.h" />
     <ClInclude Include="Inc\App.h" />
     <ClInclude Include="Inc\AppState.h" />
+    <ClInclude Include="Inc\CameraComponent.h" />
+    <ClInclude Include="Inc\CameraService.h" />
     <ClInclude Include="Inc\Common.h" />
+    <ClInclude Include="Inc\Component.h" />
     <ClInclude Include="Inc\Event.h" />
     <ClInclude Include="Inc\EventManager.h" />
     <ClInclude Include="Inc\FireworkParticleSystem.h" />
+    <ClInclude Include="Inc\FPSCameraComponent.h" />
+    <ClInclude Include="Inc\GameObject.h" />
+    <ClInclude Include="Inc\GameObjectFactory.h" />
+    <ClInclude Include="Inc\GameObjectHandle.h" />
+    <ClInclude Include="Inc\GameWorld.h" />
+    <ClInclude Include="Inc\MeshComponent.h" />
+    <ClInclude Include="Inc\ModelComponent.h" />
     <ClInclude Include="Inc\Particle.h" />
     <ClInclude Include="Inc\ParticleSystem.h" />
+    <ClInclude Include="Inc\PhysicsService.h" />
+    <ClInclude Include="Inc\RenderObjectComponent.h" />
+    <ClInclude Include="Inc\RenderService.h" />
+    <ClInclude Include="Inc\RigidBodyComponent.h" />
+    <ClInclude Include="Inc\SaveUtil.h" />
+    <ClInclude Include="Inc\Service.h" />
     <ClInclude Include="Inc\SpringEngine.h" />
+    <ClInclude Include="Inc\ThrowComponent.h" />
+    <ClInclude Include="Inc\TransformComponent.h" />
+    <ClInclude Include="Inc\TypeIds.h" />
+    <ClInclude Include="Inc\UIButtonComponent.h" />
+    <ClInclude Include="Inc\UIComponent.h" />
+    <ClInclude Include="Inc\UIRenderService.h" />
+    <ClInclude Include="Inc\UISpriteComponent.h" />
+    <ClInclude Include="Inc\UITextComponent.h" />
+    <ClInclude Include="Inc\UpdateService.h" />
+    <ClInclude Include="SoundBankComponent.h" />
+    <ClInclude Include="SoundEffectComponent.h" />
     <ClInclude Include="Src\Precompiled.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Src\AnimationComponent.cpp" />
     <ClCompile Include="Src\App.cpp" />
+    <ClCompile Include="Src\CameraComponent.cpp" />
+    <ClCompile Include="Src\CameraService.cpp" />
     <ClCompile Include="Src\EventManager.cpp" />
     <ClCompile Include="Src\FireworkParticleSystem.cpp" />
+    <ClCompile Include="Src\FPSCameraComponent.cpp" />
+    <ClCompile Include="Src\GameObject.cpp" />
+    <ClCompile Include="Src\GameObjectFactory.cpp" />
+    <ClCompile Include="Src\GameWorld.cpp" />
+    <ClCompile Include="Src\MeshComponent.cpp" />
+    <ClCompile Include="Src\ModelComponent.cpp" />
     <ClCompile Include="Src\Particle.cpp" />
     <ClCompile Include="Src\ParticleSystem.cpp" />
+    <ClCompile Include="Src\PhysicsService.cpp" />
     <ClCompile Include="Src\Precompiled.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Src\RenderObjectComponent.cpp" />
+    <ClCompile Include="Src\RenderService.cpp" />
+    <ClCompile Include="Src\RigidBodyComponent.cpp" />
+    <ClCompile Include="Src\SaveUtil.cpp" />
+    <ClCompile Include="src\SoundBankComponent.cpp" />
+    <ClCompile Include="src\SoundEffectComponent.cpp" />
     <ClCompile Include="Src\SpringEngine.cpp" />
+    <ClCompile Include="Src\ThrowComponent.cpp" />
+    <ClCompile Include="Src\TransformComponent.cpp" />
+    <ClCompile Include="Src\UIButtonComponent.cpp" />
+    <ClCompile Include="Src\UIRenderService.cpp" />
+    <ClCompile Include="Src\UISpriteComponent.cpp" />
+    <ClCompile Include="Src\UITextComponent.cpp" />
+    <ClCompile Include="Src\UpdateService.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Framework\Audio\Audio.vcxproj">
+      <Project>{baac9afb-b695-4c72-935d-dc52d14e1b37}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\..\Framework\Core\Core.vcxproj">
       <Project>{8f4b88b4-5e01-41ec-b493-c849695e3bea}</Project>
     </ProjectReference>

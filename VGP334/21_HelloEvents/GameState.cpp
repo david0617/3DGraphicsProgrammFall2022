@@ -149,7 +149,6 @@ void GameState::UpdateCameraControl(float deltaTime)
 void GameState::MoveRight()
 {
 	moffset.x += 1.0f;
-
 }
 
 

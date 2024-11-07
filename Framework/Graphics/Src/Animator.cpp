@@ -25,9 +25,6 @@ void Animator::PlayAnimation(int clipIndex, bool looping)
 
 void Animator::Update(float deltaTime)
 {
-	if (mGlobalCallbacks.find((int)TimeUtil::GetFrame()) != mGlobalCallbacks.end()) {
-		mGlobalCallbacks[(int)TimeUtil::GetFrame()]();
-	}
 	if (mClipIndex < 0 || mIsStop)
 	{
 		return;
@@ -115,9 +112,4 @@ Math::Matrix4 Animator::GetToParentTransform(const Bone* bone) const
 void Animator::AddKeyFrame(int frame, std::function<void()> callback)
 {
 	mCallbacks[frame] = callback;
-}
-
-void Animator::AddGlobalKeyFrame(int frame, std::function<void()> callback)
-{
-	mGlobalCallbacks[frame] = callback;
 }

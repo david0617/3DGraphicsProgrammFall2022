@@ -61,9 +61,8 @@ void GameState::Render()
 {
 	SimpleDraw::AddGroundPlane(10.0f, Colors::White);
 	SimpleDraw::Render(mCamera);
-
-	mParticleEffect.Begin();
-	mParticleSystem.Render(mParticleEffect);
+		mParticleEffect.Begin();
+		mParticleSystem.Render(mParticleEffect);
 	mParticleEffect.End();
 }
 

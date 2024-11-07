@@ -8,6 +8,7 @@ using namespace SpringEngine::Core;
 using namespace SpringEngine::Graphics;
 using namespace SpringEngine::Input;
 using namespace SpringEngine::Physics;
+using namespace SpringEngine::Audio;
 
 void App::ChangeState(const std::string& stateName)
 {
@@ -39,6 +40,10 @@ void App::Run(const AppConfig& config)
 	ModelManager::StaticInitialize();
 	PhysicsWorld::StaticInitialize(physicsSettings);
 	EventManager::StaticInitialize();
+	AudioSystem::StaticInitialize();
+	SoundEffectManager::StaticInitialize("../../Assets/Sounds");
+	UISpriteRenderer::StaticInitialize();
+	UIFont::StaticInitialize(UIFont::FontType::Arial);
 
 	ASSERT(mCurrentState, "App -- no app state found");
 	mCurrentState->Initialize();
@@ -62,20 +67,22 @@ void App::Run(const AppConfig& config)
 			mCurrentState = std::exchange(mNextState, nullptr);
 			mCurrentState->Initialize();
 		}
-
+		
 		auto deltaTime = TimeUtil::GetDeltaTime();
 		if (deltaTime < 0.5f)
 		{
-			PhysicsWorld::Get()->Update(deltaTime);
+			//physics now is a service
+			//PhysicsWorld::Get()->Update(deltaTime);
 
 			mCurrentState->Update(deltaTime);
-			TimeUtil::UpdateFrame(deltaTime);
-			TimeUtil::UpdateGlobalTime(deltaTime);
 		}
 
 		auto gs = GraphicsSystem::Get();
+		auto sr = UISpriteRenderer::Get();
 		gs->BeginRender();
-			mCurrentState->Render();
+			sr->BeginRender();
+				mCurrentState->Render();
+			sr->EndRender();
 			DebugUI::BeginRender();
 				mCurrentState->DebugUI();
 			DebugUI::EndRender();
@@ -84,6 +91,8 @@ void App::Run(const AppConfig& config)
 
 	mCurrentState->Terminate();
 
+	UIFont::StaticTerminate();
+	UISpriteRenderer::StaticTerminate();
 	EventManager::StaticTerminate();
 	PhysicsWorld::StaticTerminate();
 	ModelManager::StaticTerminate();
