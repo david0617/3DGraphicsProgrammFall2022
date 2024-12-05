@@ -1,0 +1,15 @@
+﻿  Precompiled.cpp
+  BlockAllocator.cpp
+  TimeUtil.cpp
+D:\3DGraphicsProgrammFall2022\Framework\Core\Src\BlockAllocator.cpp(29,2): warning C4477: 'snprintf' : format string '%s' requires an argument of type 'char *', but variadic argument 4 has type 'std::string'
+  Window.cpp
+  (compiling source file '/Src/BlockAllocator.cpp')
+  
+D:\3DGraphicsProgrammFall2022\Framework\Core\Src\BlockAllocator.cpp(31,2): warning C4474: 'snprintf' : too many arguments passed for format string
+  (compiling source file '/Src/BlockAllocator.cpp')
+      D:\3DGraphicsProgrammFall2022\Framework\Core\Src\BlockAllocator.cpp(31,2):
+      placeholders and their parameters expect 4 variadic arguments, but 5 were provided
+  
+  WindowMessageHandler.cpp
+  Generating Code...
+  Core.vcxproj -> D:\3DGraphicsProgrammFall2022\x64\Debug\Core.lib

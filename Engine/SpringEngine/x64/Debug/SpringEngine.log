@@ -1,0 +1,88 @@
+﻿  Precompiled.cpp
+D:\3DGraphicsProgrammFall2022\Framework\Graphics\Inc\AnimationUtil.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'Src/Precompiled.cpp')
+  
+D:\3DGraphicsProgrammFall2022\External\Bullet\BulletSoftBody\btSoftBody.h(38,50): warning C4305: 'initializing': truncation from 'double' to 'btScalar'
+  (compiling source file 'Src/Precompiled.cpp')
+  
+D:\3DGraphicsProgrammFall2022\External\Bullet\BulletSoftBody\btSoftBody.h(1232,17): warning C4244: 'initializing': conversion from 'double' to 'btScalar', possible loss of data
+  (compiling source file 'Src/Precompiled.cpp')
+  
+D:\3DGraphicsProgrammFall2022\External\Bullet\BulletSoftBody\btSoftBody.h(1357,21): warning C4244: '+=': conversion from 'double' to 'btScalar', possible loss of data
+  (compiling source file 'Src/Precompiled.cpp')
+  
+D:\3DGraphicsProgrammFall2022\External\Bullet\BulletSoftBody\btSoftBody.h(1361,21): warning C4244: 'initializing': conversion from 'double' to 'btScalar', possible loss of data
+  (compiling source file 'Src/Precompiled.cpp')
+  
+D:\3DGraphicsProgrammFall2022\External\Bullet\BulletSoftBody\btSoftBody.h(1385,20): warning C4244: '=': conversion from 'double' to 'btScalar', possible loss of data
+  (compiling source file 'Src/Precompiled.cpp')
+  
+D:\3DGraphicsProgrammFall2022\External\Bullet\BulletSoftBody\btSoftBody.h(1387,23): warning C4244: '=': conversion from 'double' to 'btScalar', possible loss of data
+  (compiling source file 'Src/Precompiled.cpp')
+  
+D:\3DGraphicsProgrammFall2022\External\Bullet\BulletSoftBody\btSoftBody.h(1269,17): warning C4244: 'initializing': conversion from 'double' to 'btScalar', possible loss of data
+  (compiling source file 'Src/Precompiled.cpp')
+      D:\3DGraphicsProgrammFall2022\External\Bullet\BulletSoftBody\btSoftBody.h(1269,17):
+      the template instantiation context (the oldest one first) is
+          D:\3DGraphicsProgrammFall2022\External\Bullet\BulletSoftBody\btSoftBody.h(1303,4):
+          see reference to function template instantiation 'void btSoftBody::updateFace<btDbvtNode>(DBVTNODE *,bool,bool)' being compiled
+          with
+          [
+              DBVTNODE=btDbvtNode
+          ]
+  
+  AnimationComponent.cpp
+D:\3DGraphicsProgrammFall2022\Engine\SpringEngine\Src\AnimationComponent.cpp(42,29): warning C4267: 'initializing': conversion from 'size_t' to 'uint32_t', possible loss of data
+  (compiling source file '/Src/AnimationComponent.cpp')
+  
+  App.cpp
+  CameraComponent.cpp
+  CameraService.cpp
+  EventManager.cpp
+  FireworkParticleSystem.cpp
+D:\3DGraphicsProgrammFall2022\Engine\SpringEngine\Src\FireworkParticleSystem.cpp(77,42): warning C4305: '=': truncation from 'double' to 'float'
+  (compiling source file '/Src/FireworkParticleSystem.cpp')
+  
+D:\3DGraphicsProgrammFall2022\Engine\SpringEngine\Src\FireworkParticleSystem.cpp(78,41): warning C4305: '=': truncation from 'double' to 'float'
+  (compiling source file '/Src/FireworkParticleSystem.cpp')
+  
+  FPSCameraComponent.cpp
+  GameObject.cpp
+  GameObjectFactory.cpp
+  GameWorld.cpp
+  MeshComponent.cpp
+  ModelComponent.cpp
+  Particle.cpp
+  ParticleSystem.cpp
+  PhysicsService.cpp
+  RenderObjectComponent.cpp
+  RenderService.cpp
+  RigidBodyComponent.cpp
+  SaveUtil.cpp
+  SoundBankComponent.cpp
+  Generating Code...
+  Compiling...
+  SoundEffectComponent.cpp
+  SpringEngine.cpp
+  ThrowComponent.cpp
+D:\3DGraphicsProgrammFall2022\Engine\SpringEngine\Src\ThrowComponent.cpp(18,59): warning C4267: 'argument': conversion from 'size_t' to '_Ty', possible loss of data
+D:\3DGraphicsProgrammFall2022\Engine\SpringEngine\Src\ThrowComponent.cpp(18,59): warning C4267:         with
+D:\3DGraphicsProgrammFall2022\Engine\SpringEngine\Src\ThrowComponent.cpp(18,59): warning C4267:         [
+D:\3DGraphicsProgrammFall2022\Engine\SpringEngine\Src\ThrowComponent.cpp(18,59): warning C4267:             _Ty=int
+D:\3DGraphicsProgrammFall2022\Engine\SpringEngine\Src\ThrowComponent.cpp(18,59): warning C4267:         ]
+  (compiling source file '/Src/ThrowComponent.cpp')
+  
+  TransformComponent.cpp
+  UIButtonComponent.cpp
+D:\3DGraphicsProgrammFall2022\Engine\SpringEngine\Src\UIButtonComponent.cpp(38,80): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
+  (compiling source file '/Src/UIButtonComponent.cpp')
+  
+D:\3DGraphicsProgrammFall2022\Engine\SpringEngine\Src\UIButtonComponent.cpp(38,72): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
+  (compiling source file '/Src/UIButtonComponent.cpp')
+  
+  UIRenderService.cpp
+  UISpriteComponent.cpp
+  UITextComponent.cpp
+  UpdateService.cpp
+  Generating Code...
+  SpringEngine.vcxproj -> D:\3DGraphicsProgrammFall2022\x64\Debug\SpringEngine.lib
